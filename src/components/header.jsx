@@ -40,6 +40,7 @@ export default function Header() {
 
             {/*<NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}> <img src={logout} alt="logout" height={19} width={19} />Logout</NavLink>*/}
             <NavLink to={'login'} className='btn_secondary_rounded flexCenter gap-x-2 medium-16'><img src={user} alt="user" height={19} width={19} /> Login</NavLink>
+            
           </div>
         </div>
 
