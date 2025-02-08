@@ -11,19 +11,23 @@ export default function Product() {
   const {all_products} = useContext(ShopContext);
   const {productId} = useParams();
   const product = all_products.find((e) => e.id === Number(productId));
+  const {isVisible} = useContext(ShopContext);
 
   if (!product) {
     return <div>Product not found</div>
   }
 
   return (
-    <section className="max_padd_container py-28" >
-      <div>
-        <ProductHd product={product} />
-        <ProductDisplay product={product} />
-        <ProductDescription/>
-        <RelatedProducts/>
-      </div>
-    </section>
+    <div className="pt-[75px]">
+      {isVisible && <div className="bg-lime-600 text-white py-2 text-md text-center">Product Added Successfully</div>}
+      <section className="max_padd_container !mt-0 py-18" >
+        <div>
+          <ProductHd product={product} />
+          <ProductDisplay product={product} />
+          <ProductDescription/>
+          <RelatedProducts/>
+        </div>
+      </section>
+    </div>
   )
 }

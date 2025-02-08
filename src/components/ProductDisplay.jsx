@@ -9,7 +9,7 @@ import { ShopContext } from "../Context/ShopContext";
 const ProductDisplay = (props) => {
 
     const { product } = props;
-    const {addToCart} = useContext(ShopContext);
+    const {addToCart, handleClick} = useContext(ShopContext);
 
     return (
         <section>
@@ -56,7 +56,7 @@ const ProductDisplay = (props) => {
                             cursor-pointer " >XL</div>
                         </div>
                         <div className="flex flex-col gap-y-3 mb-4 max-w-[555px]">
-                            <button onClick={()=> addToCart(product.id) } className="btn_dark_outline !rounded-none regular-14 uppercase
+                            <button onClick={()=> {addToCart(product.id); handleClick()} } className="btn_dark_outline !rounded-none regular-14 uppercase
                             tracking-widest ">Add to cart</button>
                             <button className="btn_dark_rounded !rounded-none regular-14 uppercase
                             tracking-widest ">Buy it now</button>

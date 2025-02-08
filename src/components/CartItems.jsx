@@ -3,7 +3,7 @@ import { ShopContext } from "../Context/ShopContext";
 
 const CartItems = () => {
 
-    const {all_products, cartItems, addToCart, removeFromCart, deleteCart } = useContext(ShopContext);
+    const {getTotalCartAmount ,all_products, cartItems, addToCart, removeFromCart, deleteCart } = useContext(ShopContext);
 
   return (
     <section className="max_padd-container pt-20 min-h-screen ">
@@ -46,7 +46,7 @@ const CartItems = () => {
                 <h4 className="bold-20">Summary</h4>
                 <div className="flexBetween py-4">
                     <h4 className="medium-16">SubTotal</h4>
-                    <h4 className="font-semibold text-gray-30">${0}</h4>
+                    <h4 className="font-semibold text-gray-30">${getTotalCartAmount()}</h4>
                 </div>
                 <hr className="-m-8"/>
                 <div className="flexBetween py-4">
@@ -56,7 +56,7 @@ const CartItems = () => {
                 <hr className="-m-8" />
                 <div className="flexBetween py-4 ">
                     <h4 className="bold-18" >Total</h4>
-                    <h4 className="bold-18">${0}</h4>
+                    <h4 className="bold-18">${getTotalCartAmount()}</h4>
                 </div>
                 <button className="btn_dark_rounded w-44">Checkout</button>
                 <div className="flex flex-col gap-10 m-0">

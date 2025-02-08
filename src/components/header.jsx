@@ -1,15 +1,16 @@
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom';
 import logo from '../assets/logo.svg';
 //import logout from '../assets/logout.svg';
-import user from '../assets/user.svg'
-import Navbar from './NavBar.jsx'
-import { useState } from 'react'
+import user from '../assets/user.svg';
+import Navbar from './NavBar.jsx';
+import { useState, useContext } from 'react';
+import { ShopContext } from '../Context/ShopContext.jsx';
 
 export default function Header() {
 
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened(!menuOpened);
-
+  const {getTotalCartItems} = useContext(ShopContext);
   return (
     <header className='fixed top-0 left-0 m-auto max_padd_container w-full bg-white ring-1 ring-slate-900/5 z-10' >
       <div className='px-4 flexBetween py-3 max-xs:px-2' >
@@ -35,7 +36,7 @@ export default function Header() {
           <div className="flexBetween sm:gap-x-6 cursor-pointer ">
             <NavLink to={'cart-page'} className={'flex'}> 
               <i className="bx bx-cart bx-sm flex justify-center items-center p-1 h-8 w-8 ring-slate-900/30 ring-1 rounded-full"></i> 
-              <span className="relative flexCenter w-5 h-5 rounded-full bg-secondary text-white medium-14 -top-2 ">0</span>
+              <span className="relative flexCenter w-5 h-5 rounded-full bg-secondary text-white medium-14 -top-2 ">{getTotalCartItems()}</span>
             </NavLink>
 
             {/*<NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}> <img src={logout} alt="logout" height={19} width={19} />Logout</NavLink>*/}
