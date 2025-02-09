@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -9,7 +10,7 @@ export default function Login() {
           <input type="email" placeholder="Email Address" className="h-14 w-full pl-5 bg-slate-900/5 outline-none rounded-xl " />
           <input type="password" placeholder="Password" className="h-14 w-full pl-5 bg-slate-900/5 outline-none rounded-xl " />
         </div>
-        <button className="btn_dark_rounded my-4 w-full !rounded-md" >Continue</button>
+        <button className="btn_dark_rounded my-4 w-full !rounded-md"><Link to={'/'} >Continue</Link></button>
         <p className="text-black font-bold ">Already have an account? <span
         className="text-secondary underline cursor-pointer ">Login</span> </p>
         <div className="flexCenter mt-6 gap-3" >
