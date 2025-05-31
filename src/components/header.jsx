@@ -1,25 +1,24 @@
 import {Link, NavLink} from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import logo from '../assets/IMG-20250526-WA0150.png';
 //import logout from '../assets/logout.svg';
-import user from '../assets/user.svg';
+import whatsappIcon from '../assets/whatsapp-logo-thin-svgrepo-com.svg';
 import Navbar from './Navbar.jsx';
-import { useState, useContext } from 'react';
-import { ShopContext } from '../Context/ShopContext.jsx';
+import { useState } from 'react';
 
 export default function Header() {
 
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened(!menuOpened);
-  const {getTotalCartItems} = useContext(ShopContext);
   return (
     <header className='fixed top-0 left-0 m-auto max_padd_container w-full bg-white ring-1 ring-slate-900/5 z-10' >
       <div className='px-4 flexBetween py-3 max-xs:px-2' >
         {/*Logo */}
-        <div>
-            <Link to={'/'}> <img src={logo} alt="Logo" height={66} width={88} /> </Link>
+        <div className='flexCenter gap-x-2 '>
+            <Link to={'/'}> <img src={logo} alt="Logo" height={50} width={50} /> </Link>
+            <span className='text-gold font-semibold text-center text-[20px]'>BEE Energy</span>
         </div>
         {/*navbar desktop*/}
-        <Navbar containerStyles={'hidden md:flex gap-x-5 xl:gap-x-10 medium-15 '} />
+        <Navbar containerStyles={'hidden md:flex gap-x-5 xl:gap-x-10 medium-18 '} />
 
         {/*Navbar mobile */}
         <Navbar containerStyles={`${menuOpened ? `flex item-start flex-col gap-y-12
@@ -30,17 +29,16 @@ export default function Header() {
         {/*Buttons */}
         <div className='flexBetween sm:gap-x-2 bold-16'>
           {!menuOpened ? 
-            <i className="bx bx-menu bx-sm flex justify-center items-center md:hidden cursor-pointer hover:text-secondary mr-2 p-1 ring-2 ring-slate-900/30 h-8 w-8 rounded-full " onClick={toggleMenu} ></i> : 
-            <i className="bx bx-x bx-sm flex justify-center items-center md:hidden cursor-pointer hover:text-secondary mr-2 p-1 ring-2 ring-slate-900/30 h-8 w-8 rounded-full " onClick={toggleMenu} ></i>
+            <i className="bx bx-menu bx-sm flex justify-center items-center md:hidden cursor-pointer hover:text-gray-20 mr-2 p-1 ring-2 ring-slate-900/30 h-8 w-8 rounded-full " onClick={toggleMenu} ></i> : 
+            <i className="bx bx-x bx-sm flex justify-center items-center md:hidden cursor-pointer hover:text-gray-20 mr-2 p-1 ring-2 ring-slate-900/30 h-8 w-8 rounded-full " onClick={toggleMenu} ></i>
           }
           <div className="flexBetween sm:gap-x-6 cursor-pointer ">
-            <NavLink to={'cart-page'} className={'flex'}> 
-              <i className="bx bx-cart bx-sm flex justify-center items-center p-1 h-8 w-8 ring-slate-900/30 ring-1 rounded-full"></i> 
-              <span className="relative flexCenter w-5 h-5 rounded-full bg-secondary text-white medium-14 -top-2 ">{getTotalCartItems()}</span>
+            <NavLink to={'cart-page'} className={'flex'}>
+              <i className="bx bx-phone-ring bx-sm flex justify-center items-center p-1 h-8 w-8 ring-black text-black ring-1 rounded-full"></i> 
             </NavLink>
 
             {/*<NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}> <img src={logout} alt="logout" height={19} width={19} />Logout</NavLink>*/}
-            <NavLink to={'login'} className='btn_secondary_rounded flexCenter gap-x-2 medium-16'><img src={user} alt="user" height={19} width={19} /> Login</NavLink>
+            <NavLink to={'login'} className='btn_secondary_rounded flexCenter gap-x-2'><img src={whatsappIcon} alt="user" height={17} width={17} style={{marginLeft: '-5px'}} /> <span className='text-[13px]'>Chat with us</span></NavLink>
             {/*hello */}
           </div>
         </div>

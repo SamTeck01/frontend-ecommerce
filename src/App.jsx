@@ -12,7 +12,7 @@ import bannerkids from './assets/bannerkids.png';
 
 export default function App() {
   return (
-    <main className="bg-primary text-tertiary ">
+    <main className="text-tertiary ">
       <BrowserRouter>
         <Header/>
         <Routes>

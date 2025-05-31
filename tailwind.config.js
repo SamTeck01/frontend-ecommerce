@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
@@ -10,6 +11,8 @@ export default {
         primary: '#f0f2f5',
         secondary: '#ff813f',
         tertiary: '#222222',
+        ash: '#575757',
+        gold: '#E49900',
         slate: {
           10: '#f1f3f4',
         },
@@ -26,8 +29,8 @@ export default {
         },
       },
      backgroundImage: {
-        hero: "url('/src/assets/bgecom.png')",
-        banneroffer: "url('/src/assets/banneroffer.png')",
+        hero: "url('/src/assets/solar gadgets hero 2.jpg')",
+        banneroffer: "url('/src/assets/solar gadgets hero.jpg')",
       },
       screens: {
         xs: '400px',

@@ -18,7 +18,7 @@ export default function Product() {
   }
 
   return (
-    <div className="pt-[75px]">
+    <div className="pt-[75px]" style={{backgroundColor: '#E49900'}}>
       {isVisible && <div className="bg-lime-600 text-white py-2 text-md text-center"><i className="bx bx-mark"></i>Product Added Successfully</div>}
       <section className="max_padd_container !mt-0 py-18" >
         <div>
