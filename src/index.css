@@ -1,7 +1,7 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
   margin: 0;
@@ -36,7 +36,7 @@ html{
   background-color: #57575768;
 }
 
-@layer base {
+@layer utilities {
 
   .active_link{
     @apply text-gold relative flex-1 after:w-full after:h-[1px] after:bg-gold after:absolute after:-bottom-3 after:right-0;
@@ -62,9 +62,6 @@ html{
   p {
     @apply leading-[1.3] text-gray-30 text-[15px];
   }
-}
-
-@layer utilities {
 
   .btn_white_rounded  { 
     @apply  medium-15 border border-white bg-white px-7 py-3 text-gray-90 rounded-full
@@ -213,7 +210,7 @@ html{
   }
 
   .bold-36 {
-    @apply text-[36px] font-[700] leading-[120%];
+    @apply text-[36px] font-[700] leading-[120%] ;
   }
   .bold-32 {
     @apply text-[32px] font-[700] leading-[120%];

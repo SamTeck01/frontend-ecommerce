@@ -1,16 +1,16 @@
-import POPULAR from "../assets/popular";
-import Item from "./Item";
+import { motion } from "framer-motion";
 import firstPic from '../assets/demo-business-company-01.jpg';
 import secondPic from '../assets/demo-business-company-02.jpg';
 
 export default function Popular() {
+
   return (
     <section>
       <div className="max_padd_container py-12 xl:py-28 xl:w-[88%]" >
 
         <section className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
-          <div>
+          <div>       
             <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
               About Bee Energy
             </span>        
@@ -24,23 +24,35 @@ export default function Popular() {
           {/* Right side: Overlapping images */}
           <div className="relative flexEnd">
             {/* Larger image */}
-            <img
-              src={secondPic}
-              alt="Team at work"
+            <motion.div
               className="w-[76%] h-auto rounded-lg shadow-lg "
-            />
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 1, y: -70 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <img
+                src={secondPic}
+                alt="Team at work"
+                className="rounded-lg"
+              />
+            </motion.div>
+            
             {/* Smaller overlapping image */}
-            <img
-              src={firstPic}
-              alt="Team discussion"
+            <motion.div
               className="absolute -bottom-8 left-3 w-[60%] h-auto rounded-lg shadow-lg"
-            />
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 1, y: 70 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <img
+                src={firstPic}
+                alt="Team discussion"
+                className="rounded-lg"
+              />
+            </motion.div>
+            
           </div>
         </section>
-        {/*container */}
-        <div className="grid grid-cols-1 sx:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6" >
-            {POPULAR.map((item)=> <Item key={item.id} item={item} id={item.id} /> ) }
-        </div>
       </div>
     </section>
   )
