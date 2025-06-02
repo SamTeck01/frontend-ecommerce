@@ -38,7 +38,7 @@ export default function Header() {
             </NavLink>
 
             {/*<NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}> <img src={logout} alt="logout" height={19} width={19} />Logout</NavLink>*/}
-            <NavLink to={'login'} className='btn_secondary_rounded flexCenter gap-x-2'><img src={whatsappIcon} alt="user" height={17} width={17} style={{marginLeft: '-5px'}} /> <span className='text-[13px]'>Chat with us</span></NavLink>
+            <NavLink to={'login'} className='btn_secondary_rounded flexCenter gap-x-2'><img src={whatsappIcon} alt="user" height={17} width={17} style={{marginLeft: '-5px'}} /> <span className='text-[10px] md:text-[13px] lg:text-[13px]'>Chat with us</span></NavLink>
             {/*hello */}
           </div>
         </div>
