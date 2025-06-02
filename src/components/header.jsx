@@ -11,11 +11,11 @@ export default function Header() {
   const toggleMenu = () => setMenuOpened(!menuOpened);
   return (
     <header className='fixed top-0 left-0 m-auto max_padd_container w-full bg-white ring-1 ring-slate-900/5 z-10' >
-      <div className='px-4 flexBetween py-3 max-xs:px-2' >
+      <div className='flexBetween py-3 max-xs:px-2' >
         {/*Logo */}
         <div className='flexCenter gap-x-2 '>
             <Link to={'/'}> <img src={logo} alt="Logo" height={50} width={50} /> </Link>
-            <span className='text-gold font-semibold text-center text-[20px]'>BEE Energy</span>
+            <span className='text-gold md:font-semibold lg:font-semibold text-center text-[15px] md:text-[20px] lg:text-[20px]'>BEE Energy</span>
         </div>
         {/*navbar desktop*/}
         <Navbar containerStyles={'hidden md:flex gap-x-5 xl:gap-x-10 medium-18 '} />
@@ -34,7 +34,7 @@ export default function Header() {
           }
           <div className="flexBetween sm:gap-x-6 cursor-pointer ">
             <NavLink to={'cart-page'} className={'flex'}>
-              <i className="bx bx-phone-ring bx-sm flex justify-center items-center p-1 h-8 w-8 ring-black text-black ring-1 rounded-full"></i> 
+              <i className="bx bx-phone-ring bx-sm flex justify-center items-center p-1 h-8 w-8 ring-black text-black ring-1 rounded-full me-2"></i> 
             </NavLink>
 
             {/*<NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}> <img src={logout} alt="logout" height={19} width={19} />Logout</NavLink>*/}

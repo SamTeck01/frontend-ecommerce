@@ -14,7 +14,7 @@ export default function Popular() {
             <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
               About Bee Energy
             </span>        
-            <h2 className="h8">Empowering Homes with Sustainable Solar Solutions</h2>
+            <h2 className="h8 text-white">Empowering Homes with Sustainable Solar Solutions</h2>
             <p className="text-ash text-[18px]">
               We’re passionate about transforming homes and businesses with cutting-edge solar technology. 
               With years of experience, we’re dedicated to making clean energy accessible, reliable, and affordable for everyone.

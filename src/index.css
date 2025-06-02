@@ -32,8 +32,19 @@ html{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.bg-white-200{
+  background-color: #ffffff3b;
+}
 .bg-ash-100{
   background-color: #57575768;
+}
+.bg-ash-200{
+  background-color: #57575797;
+}
+.my-transition-transform{
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .35s;
 }
 
 @layer utilities {
@@ -57,7 +68,7 @@ html{
     @apply text-[38px] leading-tight md:text-[48px] md:leading-[1.3] mb-4 font-semibold;
   }
   .h8{
-    @apply text-[36.5px] leading-tight md:text-[46.5px] md:leading-[1.3] mb-4 font-semibold;
+    @apply text-[35px] leading-tight md:text-[45px] md:leading-[1.3] mb-4 font-medium;
   }
   p {
     @apply leading-[1.3] text-gray-30 text-[15px];
