@@ -107,9 +107,14 @@ const PlansSection = () => {
     <section className="px-4 py-12 mt-5">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-normal leading-tight text-white">Our Solar Plans</h2>
-          <p className="text-ash text-[14px] mt-2 max-w-md mx-auto leading-relaxed">
+        <div className="w-full max-w-[36rem]  ">
+          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+            Our Solar Plans
+          </span>
+
+          <h2 className="h8 text-white ">Flexible Solar Plans for Every Need</h2>
+
+          <p className="text-ash text-[18px] my-4 leading-relaxed">
             Choose the plan that best fits your home’s energy needs. Both Basic and Premium plans
             come with smart, IoT-enabled technology—so you can monitor and control your system online.
           </p>
@@ -143,24 +148,6 @@ const PlansSection = () => {
             textColor="text-ash"
           />
         </div>
-
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="bg-[#f0f9ff] rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-[#0f172a] mb-2">98%</h3>
-            <p className="text-gray-600">Customer Satisfaction</p>
-          </div>
-          
-          <div className="bg-[#f0fdfa] rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-[#0f766e] mb-2">5+</h3>
-            <p className="text-gray-600">Businesses Served</p>
-          </div>
-          
-          <div className="bg-yellow-50 rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-yellow-600 mb-2">30%</h3>
-            <p className="text-gray-600">Average Cost Savings</p>
-          </div>
-        </div>
-
       </div>
     </section>
   );

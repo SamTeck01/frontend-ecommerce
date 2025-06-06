@@ -5,10 +5,10 @@ import secondPic from '../assets/demo-business-company-02.jpg';
 export default function About() {
 
   return (
-    <section>
-      <div className="px-4 py-12 " >
+    <section className="px-4 py-12 ">
+      <div className="container mx-auto" >
 
-        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
           <div>       
             <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
@@ -52,6 +52,29 @@ export default function About() {
             
           </div>
         </section>
+
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Customer Satisfaction */}
+          <div className="bg-yellow-50 rounded-lg p-6 text-center">
+            <h3 className="text-4xl font-bold text-yellow-600 mb-2">99%</h3>
+            <p className="text-gray-600">Customer Satisfaction</p>
+          </div>
+
+          {/* Solar Projects Completed */}
+          <div className="bg-[#f0f9ff] rounded-lg p-6 text-center">
+            <h3 className="text-4xl font-bold text-[#0f172a] mb-2">120+</h3>
+            <p className="text-gray-600">Solar Projects Completed</p>
+          </div>
+
+          {/* Average Energy Savings */}
+          <div className="bg-[#f0fdfa] rounded-lg p-6 text-center">
+            <h3 className="text-4xl font-bold text-[#0f766e] mb-2">35%</h3>
+            <p className="text-gray-600">Average Energy Savings</p>
+          </div>
+        </div>
+
+
+
       </div>
     </section>
   )
