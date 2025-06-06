@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import firstPic from '../assets/demo-business-company-01.jpg';
-import secondPic from '../assets/demo-business-company-02.jpg';
+import firstPic from '../assets/WhatsApp Image 2025-05-31 at 20.59.11_71b14972.jpg';
+import secondPic from '../assets/WhatsApp Image 2025-05-31 at 20.59.10_89975621.jpg';
 
 export default function About() {
 
