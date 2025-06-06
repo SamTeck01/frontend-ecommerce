@@ -6,7 +6,7 @@ export default function About() {
 
   return (
     <section>
-      <div className="px-4 py-12 xl:py-28 xl:w-[88%]" >
+      <div className="px-4 py-12 " >
 
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
@@ -14,10 +14,9 @@ export default function About() {
             <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
               About Bee Energy
             </span>        
-            <h2 className="h8 text-white">Empowering Homes with Sustainable Solar Solutions</h2>
-            <p className="text-ash text-[18px]">
-              We’re passionate about transforming homes and businesses with cutting-edge solar technology. 
-              With years of experience, we’re dedicated to making clean energy accessible, reliable, and affordable for everyone.
+            <h2 className="h8 text-white">Empowering Homes with Sustainable Energy with IoT Solutions</h2>
+            <p className="text-ash text-[18px] leading-relaxed mt-4 max-w-[36rem]">
+              Join us on our mission to revolutionize home energy systems through innovative IoT-powered solutions, combining real-time monitoring, data-driven insights, and seamless integration for a cleaner, smarter, and more efficient future.
             </p>
           </div>
 
