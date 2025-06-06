@@ -100,25 +100,32 @@ const NewHeader = () => {
                 Home
               </a>
               <a 
-                href="#solutions" 
+                href="#about" 
                 className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                Solutions
+                About
               </a>
               <a 
-                href="#features" 
+                href="#plans" 
                 className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                Features
+                Plans
               </a>
               <a 
-                href="#testimonials" 
+                href="#products" 
                 className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 Products
+              </a>
+              <a 
+                href="#services" 
+                className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Services
               </a>
               <a 
                 href="#contact" 
