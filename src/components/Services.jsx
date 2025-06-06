@@ -20,14 +20,20 @@ const ServicesSection = () => {
   return (
     <section className="px-4 py-12">
       <main className="container mx-auto">
-        <header className="text-center mb-10">
-          <h1 className="text-3xl font-normal leading-tight text-white">
+
+        <div className="mb-10 max-w-[36rem]">
+          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
             Our Smart Solar Services
+          </span>
+
+          <h1 className="h3 text-white">
+            Smarter, Greener, and Connected: Our Solar Solutions
           </h1>
-          <p className="text-ash text-[14px] mt-2 max-w-md mx-auto leading-relaxed">
+          <p className="text-ash text-[18px] leading-relaxed mt-4 max-w-[36rem]">
             Explore how our advanced, IoT-enabled solar solutions help you achieve energy independence and control your solar ecosystem online.
           </p>
-        </header>
+        </div>
+
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <ServiceCard
             icon="sun"

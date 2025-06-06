@@ -107,7 +107,7 @@ const PlansSection = () => {
     <section className="px-4 py-12 mt-5">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="w-full max-w-[36rem]  ">
+        <div className="max-w-[36rem]  ">
           <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
             Our Solar Plans
           </span>
