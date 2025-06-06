@@ -104,7 +104,7 @@ const PlansSection = () => {
   };
 
   return (
-    <section className="px-4 py-12 mt-5">
+    <section id='plans' className="px-4 py-12 mt-5">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="max-w-[36rem]  ">

@@ -32,11 +32,11 @@ const CardComponent = ({ title, description, image, to }) => {
             <Typography variant="body2" className="font-medium mt-2 text-ash truncate">
               {description}
             </Typography>
-            <button
+            <div
               className="float-end mb-2 mt-2 bg-ash-200 hover:bg-secondary-700 text-white px-5 py-1 rounded"
             >
               Learn more
-            </button>
+            </div>
           </CardContent>
         </CardActionArea>
       </Card>

@@ -5,7 +5,7 @@ import secondPic from '../assets/WhatsApp Image 2025-05-31 at 20.59.10_89975621.
 export default function About() {
 
   return (
-    <section className="px-4 py-12 ">
+    <section id="about" className="px-4 py-12 ">
       <div className="container mx-auto" >
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

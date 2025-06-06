@@ -1,6 +1,6 @@
 const SendWhatsAppMessage = (message:string) => {
 
-  const phoneNumber = '+2348133318545';
+  const phoneNumber = '+2349023036748';
   // Remove any + signs or spaces
   const formattedNumber = phoneNumber.replace(/[^0-9]/g, '');
   // Encode the message for the URL

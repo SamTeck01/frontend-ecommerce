@@ -18,7 +18,7 @@ const ServiceCard = ({ icon, title, desc }) => {
 
 const ServicesSection = () => {
   return (
-    <section className="px-4 py-12">
+    <section id="services" className="px-4 py-12">
       <main className="container mx-auto">
 
         <div className="mb-10 max-w-[36rem]">
