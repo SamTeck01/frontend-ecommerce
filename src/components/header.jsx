@@ -57,7 +57,7 @@ const NewHeader = () => {
               About
             </a>
             <a href="#plans" className={linkClass('#features')} onClick={()=>handleClick('#features')} >
-              Solar Plans
+              Plans
             </a>
             <a href="#products" className={linkClass('#products')} onClick={()=>handleClick('#testimonials')}>
               Products
