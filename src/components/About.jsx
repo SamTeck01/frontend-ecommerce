@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import firstPic from '../assets/demo-business-company-01.jpg';
 import secondPic from '../assets/demo-business-company-02.jpg';
 
-export default function Popular() {
+export default function About() {
 
   return (
     <section>
-      <div className="max_padd_container py-12 xl:py-28 xl:w-[88%]" >
+      <div className="px-4 py-12 xl:py-28 xl:w-[88%]" >
 
-        <section className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
           <div>       
             <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">

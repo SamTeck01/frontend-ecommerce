@@ -1,18 +1,21 @@
 
 import Hero from "./Hero.jsx";
-import Popular from "./Popular.jsx";
-import Offer from "./Offer.jsx";
-import NewCollections from "./NewCollections.jsx";
-import NewsLetter from "./NewsLetter.jsx";
+import Popular from "./About.jsx";
+import Products from "./Products.jsx";
+import PlansSection from "./PlanSection.jsx";
+import WhyChooseUs from "./WhyChoosUs.jsx";
+import Services from "./Services.jsx";
 
 export default function Home() {
   return (
     <div>
       <Hero />
       <Popular/>
-      <Offer/>
-      <NewCollections/>
-      <NewsLetter/>
+      <PlansSection/>
+      <Products/>
+      <Services/>
+      <WhyChooseUs/>
+      
     </div>
   )
 }

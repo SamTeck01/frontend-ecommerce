@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'inter';
+  font-family: 'Urbanist', sans-serif;
 }
 .linearGradient {
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
