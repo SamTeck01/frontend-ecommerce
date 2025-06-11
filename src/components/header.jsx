@@ -136,7 +136,7 @@ const NewHeader = () => {
               </a>
               <button 
                 onClick={()=>SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
-                className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold' : 'bg-transparent' } text-black px-6 py-2 rounded-md font-medium transition duration-300 w-full`}>
+                className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold text-white' : 'bg-transparent text-black' }  px-6 py-2 rounded-md font-medium transition duration-300 w-full`}>
                 Chat with us
               </button>
             </nav>
