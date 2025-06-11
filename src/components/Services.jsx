@@ -1,8 +1,8 @@
 const ServiceCard = ({ icon, title, desc }) => {
   return (
-    <article className="border border-gray-200 p-6">
+    <article className="border border-ash p-6">
       <i className={`bx bx-${icon} text-ash text-lg mb-4`}></i>
-      <h2 className="font-normal text-base mb-2 text-white">{title}</h2>
+      <h2 className="font-normal text-base mb-2 text-black">{title}</h2>
       <p className="text-ash text-xs leading-relaxed mb-2">
         {desc} Our innovative solar systems are equipped with IoT technology to give you complete control and monitoring capabilities—anytime, anywhere.
       </p>
@@ -22,11 +22,11 @@ const ServicesSection = () => {
       <main className="container mx-auto">
 
         <div className="mb-10 max-w-[36rem]">
-          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
             Our Smart Solar Services
           </span>
 
-          <h1 className="h3 text-white">
+          <h1 className="h3 text-black">
             Smarter, Greener, and Connected: Our Solar Solutions
           </h1>
           <p className="text-ash text-[18px] leading-relaxed mt-4 max-w-[36rem]">

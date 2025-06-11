@@ -7,7 +7,7 @@ import SOCIALS from "../assets/socials";
 function FooterColumn({ title, children, className }) {
   return (
     <div className="flex flex-col gap-2">
-      <h4 className="font-semibold text-lg text-white whitespace-nowrap">{title}</h4>
+      <h4 className="font-semibold text-lg text-black whitespace-nowrap">{title}</h4>
       <div className={className}>{children}</div>
     </div>
   );
@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="px-4 py-12">
       <div className="container mx-auto px-4 flex flex-col gap-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <Link to="/" className="mb-6 md:mb-0 text-2xl font-extrabold text-white tracking-wide">
+          <Link to="/" className="mb-6 md:mb-0 text-2xl font-extrabold text-black tracking-wide">
             Bee Energy
           </Link>
           <div className="flex flex-wrap gap-10 md:flex-1 md:justify-between">
@@ -31,7 +31,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((link, linkIndex) => (
                     <li key={`${col.title}-${linkIndex}`}>
-                      <Link to="/" className="hover:text-white transition-colors">
+                      <Link to="/" className="hover:text-black transition-colors">
                         {link}
                       </Link>
                     </li>

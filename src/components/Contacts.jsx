@@ -22,7 +22,7 @@ const sendEmail = async(e) => {
 
 const Contact = () => {
 return (
-    <section id="contact" className="py-12 px-4 bg-white">
+    <section id="contact" className="py-12 px-4 ">
 
         <div className="container mx-auto">
 

@@ -11,10 +11,10 @@ export default function About() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
           <div>       
-            <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+            <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
               About Bee Energy
             </span>        
-            <h2 className="h8 text-white">Empowering Homes with Sustainable Energy with IoT Solutions</h2>
+            <h2 className="h8 text-black">Empowering Homes with Sustainable Energy with IoT Solutions</h2>
             <p className="text-ash text-[18px] leading-relaxed mt-4 max-w-[36rem]">
               Join us on our mission to revolutionize home energy systems through innovative IoT-powered solutions, combining real-time monitoring, data-driven insights, and seamless integration for a cleaner, smarter, and more efficient future.
             </p>

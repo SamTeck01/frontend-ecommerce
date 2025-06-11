@@ -2,16 +2,16 @@ import { NavLink } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative md:bg-hero lg:bg-hero bg-cover bg-center bg-no-repeat mt-16 w-full">
+    <section id="home" className="relative bg-center bg-no-repeat mt-16 w-full">
         <div className="container mx-auto relative flex flex-col space-y-6 px-4 !pt-[59px] !md:pt-30   ">
           
             <div className="inline-block">
-              <span className="bg-ash-100 text-white py-1 px-3 rounded-full text-sm font-medium">
+              <span className="bg-ash-100 text-black py-1 px-3 rounded-full text-sm font-medium">
                 Business Solutions
               </span>
             </div>  
 
-            <h4 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white max-w-[36rem]">
+            <h4 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black max-w-[36rem]">
               Power Your Solar System With <span className="text-ash" >Online Control</span> Solutions
             </h4>
 

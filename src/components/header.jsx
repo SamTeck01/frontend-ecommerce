@@ -35,8 +35,8 @@ const NewHeader = () => {
     <header 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white text-gold shadow-md py-3' 
-          : 'bg-gold text-white py-4'
+          ? 'bg-white text-black shadow-md py-3' 
+          : 'bg-gold text-black py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -72,7 +72,7 @@ const NewHeader = () => {
 
           <div className="hidden md:block">
             <button onClick={()=>SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
-             className={`${scrolled ? 'bg-gold hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold' : 'bg-transparent' } text-white px-6 py-2 rounded-md font-medium transition duration-300`}>
+             className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 text-white hover:text-gold' : 'bg-transparent' } text-black px-6 py-2 rounded-md font-medium transition duration-300`}>
               Chat with us
             </button>
           </div>
@@ -136,7 +136,7 @@ const NewHeader = () => {
               </a>
               <button 
                 onClick={()=>SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
-                className={`${scrolled ? 'bg-gold hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold' : 'bg-transparent' } text-white px-6 py-2 rounded-md font-medium transition duration-300 w-full`}>
+                className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold' : 'bg-transparent' } text-white px-6 py-2 rounded-md font-medium transition duration-300 w-full`}>
                 Chat with us
               </button>
             </nav>

@@ -9,14 +9,14 @@ export default function Products() {
   return (
     <section id='products' className="px-4 py-12" >
       <div className=' container mx-auto'>
-        <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-white bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+        <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
           Our Products
         </span>   
-        <h2 className="h8 text-white w-full md:w-[50%] lg:w-[50%]">We offer a range of products to choose from</h2>
+        <h2 className="h8 text-black w-full md:w-[50%] lg:w-[50%]">We offer a range of products to choose from</h2>
 
         <div className='flexEnd'><IconButton aria-label="" className='h-[35px] !rounded-3xl font-semibold'>
-          <p className='text-white text-sm ms-1 '>Browse all products</p>
-          < i className='bx text-white bx-arrow-right-stroke'  ></i> 
+          <p className='text-black text-sm ms-1 '>Browse all products</p>
+          < i className='bx text-black bx-arrow-right-stroke'  ></i> 
         </IconButton></div>  
         
         {/*Products section */}

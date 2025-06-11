@@ -25,7 +25,7 @@ const CardComponent = ({ title, description, image, to }) => {
             <Typography
               gutterBottom
               variant="body1"
-              className="text-[14px] !-mt-2"
+              className="text-[14px] !-mt-2 text-black"
             >
               {title}
             </Typography>
@@ -33,7 +33,7 @@ const CardComponent = ({ title, description, image, to }) => {
               {description}
             </Typography>
             <div
-              className="float-end mb-2 mt-2 bg-ash-200 hover:bg-secondary-700 text-white px-5 py-1 rounded"
+              className="float-end mb-2 mt-2 bg-ash-200 hover:bg-secondary-700 text-black px-5 py-1 rounded"
             >
               Learn more
             </div>
