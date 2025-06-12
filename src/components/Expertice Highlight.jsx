@@ -100,7 +100,7 @@ const ExpertiseHighlight = () => {
             {/* Testimonial */}
             <div className="bg-white p-4 rounded-lg shadow-md mt-4">
               <p className="text-ash italic">
-                "Bee Energy Hive’s smart energy solutions have transformed our home’s energy usage—reliable and cost-effective!"
+                &quot;Bee Energy Hive’s smart energy solutions have transformed our home’s energy usage—reliable and cost-effective!&quot;
               </p>
               <p className="text-gold2 font-semibold mt-2">– A satisfied customer</p>
             </div>

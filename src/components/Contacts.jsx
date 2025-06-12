@@ -1,4 +1,3 @@
-import sendWhatsAppMessage from './SendWhatsappMessage';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
@@ -121,7 +120,7 @@ return (
                             
                             <div>
                                 <label htmlFor="interest" className="block text-ash mb-2 font-medium">
-                                    I'm interested in
+                                    I&apos;m interested in
                                 </label>
                                 <select 
                                     id="interest" 
