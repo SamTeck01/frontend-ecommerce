@@ -61,7 +61,7 @@ const PlansPage = () => {
           {plans.map((plan) => (
             <div key={plan.slug} className="border p-6 rounded-lg shadow-md hover:shadow-xl transition-all">
               <h2 className="text-xl font-semibold mb-2">{plan.title}</h2>
-              <p className="text-lg font-bold text-green-600 mb-4">{plan.price}</p>
+              <p className="text-lg font-bold text-gold2 mb-4">{plan.price}</p>
               <ul className="text-sm text-gray-600 space-y-2 mb-4">
                 {plan.features.slice(0, 3).map((feat, idx) => (
                   <li key={idx}>✔ {feat}</li>

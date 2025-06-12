@@ -75,8 +75,8 @@ const PlanDetails = () => {
 
         <div>
           <h1 className="text-3xl font-bold mb-2 text-ash">{plan.title}</h1>
-          <p className="text-green-600 font-bold text-xl mb-4">{plan.price}</p>
-          <p className="text-gray-600 mb-4">{plan.description}</p>
+          <p className="text-gold2 font-bold text-xl mb-4">{plan.price}</p>
+          <p className="text-ash mb-4">{plan.description}</p>
 
           <ul className="space-y-2 mb-4">
             {plan.features.map((f, i) => (
