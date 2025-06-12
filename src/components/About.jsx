@@ -11,7 +11,7 @@ export default function About() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Heading and Subheading */}
           <div>       
-            <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+            <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10 ">
               About Bee Energy
             </span>        
             <h2 className="h8 text-black">Empowering Homes with Sustainable Energy with IoT Solutions</h2>
@@ -56,25 +56,22 @@ export default function About() {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* Customer Satisfaction */}
           <div className="bg-yellow-50 rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-yellow-600 mb-2">99%</h3>
-            <p className="text-gray-600">Customer Satisfaction</p>
+            <h3 className="text-4xl font-bold text-yellow-600 mb-2">100+</h3>
+            <p className="text-gray-600">Inverters Built</p>
           </div>
 
           {/* Solar Projects Completed */}
           <div className="bg-[#f0f9ff] rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-[#0f172a] mb-2">120+</h3>
-            <p className="text-gray-600">Solar Projects Completed</p>
+            <h3 className="text-4xl font-bold text-[#0f172a] mb-2">30+</h3>
+            <p className="text-gray-600">Businesses Empowered with Smart IoT</p>
           </div>
 
           {/* Average Energy Savings */}
           <div className="bg-[#f0fdfa] rounded-lg p-6 text-center">
-            <h3 className="text-4xl font-bold text-[#0f766e] mb-2">35%</h3>
-            <p className="text-gray-600">Average Energy Savings</p>
+            <h3 className="text-4xl font-bold text-[#0f766e] mb-2">99%</h3>
+            <p className="text-gray-600">Customers Satisfaction </p>
           </div>
         </div>
-
-
-
       </div>
     </section>
   )

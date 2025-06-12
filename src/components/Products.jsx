@@ -9,7 +9,7 @@ export default function Products() {
   return (
     <section id='products' className="px-4 py-12" >
       <div className=' container mx-auto'>
-        <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+        <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10 ">
           Our Products
         </span>   
         <h2 className="h8 text-black w-full md:w-[50%] lg:w-[50%]">We offer a range of products to choose from</h2>

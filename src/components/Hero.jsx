@@ -6,7 +6,7 @@ export default function Hero() {
         <div className="container mx-auto relative flex flex-col space-y-6 px-4 !pt-[59px] !md:pt-30   ">
           
             <div className="inline-block">
-              <span className="bg-ash-100 text-black py-1 px-3 rounded-full text-sm font-medium">
+              <span className="bg-gold2/35 text-black py-1 px-3 rounded-full text-sm font-medium">
                 Business Solutions
               </span>
             </div>  
@@ -16,11 +16,12 @@ export default function Hero() {
             </h4>
 
             <p className="text-gray-600 text-lg md:text-xl max-w-[36rem]">
-              With BEE Energy’s intuitive platform, you can manage, monitor, and optimize your solar system from the palm of your hand. Gain real-time insights, track energy consumption, and make adjustments all in one easy-to-use interface. Take control of your energy and reduce your carbon footprint today.
+              Bee Energy Hive specializes in building and assembling inverter systems, integrating smart IoT technologies, and delivering tailored energy solutions for businesses and homes.
             </p>
 
             <div className="flex max-xs:flex-col gap-2">
-                <NavLink to={'/'} className={"bg-black hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-medium transition duration-300 flexCenter"}>< i className='bx bx-like text-lg me-4'></i> Explore Our Smart Solutions</NavLink>
+                <NavLink to={'/'} className={"bg-black border-2 hover:border-black hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-medium transition duration-300 flexCenter"}>< i className='bx bx-like text-lg me-4'></i> Get Started</NavLink>
+                <NavLink to={'/'} className={"bg-black border-2 hover:border-black hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-medium transition duration-300 flexCenter"}>< i className='bx bx-like text-lg me-4'></i> Explore Services</NavLink>
             </div>
         </div>      
     </section>

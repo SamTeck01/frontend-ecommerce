@@ -1,28 +1,30 @@
-const ServiceCard = ({ icon, title, desc }) => {
+import PropTypes from 'prop-types';
+
+const ServiceCard1 = ({ icon, title, desc }) => {
   return (
-    <article className="border border-ash p-6">
-      <i className={`bx bx-${icon} text-ash text-lg mb-4`}></i>
-      <h2 className="font-normal text-base mb-2 text-black">{title}</h2>
-      <p className="text-ash text-xs leading-relaxed mb-2">
-        {desc} Our innovative solar systems are equipped with IoT technology to give you complete control and monitoring capabilities—anytime, anywhere.
+    <article className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition-shadow hover:shadow-md cursor-pointer">
+      <i className={`bx bx-${icon} text-gold2 text-3xl mb-4`}></i>
+      <h2 className="text-lg font-semibold mb-2 text-gray-900">{title}</h2>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        {desc}
       </p>
-      <button
-        aria-label="More about our services"
-        className="text-ash ring-1 rounded-full p-[5px] pb-0 float-end"
-      >
-        <i className="bx text-[24px] bx-arrow-right"></i>
-      </button>
     </article>
   );
 };
 
-const ServicesSection = () => {
-  return (
-    <section id="services" className="px-4 py-12">
-      <main className="container mx-auto">
+ServiceCard1.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+};
 
+const ServicesSection1 = () => {
+  return (
+    <section id="services" className="px-4 py-12 ">
+      <main className="container mx-auto ">
+        {/* Heading and Intro */}
         <div className="mb-10 max-w-[36rem]">
-          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10 ">
             Our Smart Solar Services
           </span>
 
@@ -34,41 +36,50 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ServiceCard
+        {/* Service Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ServiceCard1
+            icon="cog"
+            title="Inverter Design & Assembly"
+            desc="Tailored inverter solutions built to meet your energy needs with precision and reliability."
+          />
+          <ServiceCard1
+            icon="cloud"
+            title="IoT-Integrated Energy Systems"
+            desc="Smart IoT technology for seamless control, monitoring, and optimization of your energy usage."
+          />
+          <ServiceCard1
             icon="sun"
-            title="Smart Solar Systems"
-            desc="Experience seamless energy management and real-time insights into your solar power generation."
+            title="Solar Panel Installations"
+            desc="High-quality solar installations for homes and businesses—bringing clean energy within reach."
           />
-          <ServiceCard
-            icon="bolt"
-            title="Remote Monitoring"
-            desc="Easily monitor your solar systems online and access detailed analytics from anywhere."
+          <ServiceCard1
+            icon="search"
+            title="Energy Audits & Consulting"
+            desc="Expert analysis and guidance to help you maximize energy efficiency and savings."
           />
-          <ServiceCard
-            icon="mobile"
-            title="App Control"
-            desc="Stay in command with our mobile app, offering full system control at your fingertips."
+          <ServiceCard1
+            icon="bar-chart"
+            title="Smart Monitoring Solutions"
+            desc="Real-time data and analytics to keep you informed and in control of your solar performance."
           />
-          <ServiceCard
-            icon="chart"
-            title="Energy Insights"
-            desc="Access data-driven insights to optimize your energy usage and savings."
+          <ServiceCard1
+            icon="support"
+            title="Ongoing Support & Maintenance"
+            desc="Dedicated support and proactive maintenance to ensure your system runs at peak performance."
           />
-          <ServiceCard
-            icon="wrench"
-            title="Maintenance & Support"
-            desc="Get expert support and proactive maintenance to keep your system running smoothly."
-          />
-          <ServiceCard
-            icon="lock"
-            title="Secure Connectivity"
-            desc="Our secure IoT platform ensures safe and reliable connections for your smart energy systems."
-          />
-        </section>
+        </div>
       </main>
     </section>
   );
 };
-
-export default ServicesSection;
+export default ServicesSection1;
+ServicesSection1.propTypes = {
+  services: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+    })
+  ),
+};

@@ -31,12 +31,12 @@ return (
                 <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mt-2 mb-4">
                     Power Your Future—Contact Our Solar Experts
                 </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto">
+                <p className="text-ash max-w-2xl mx-auto">
                     Contact us today to learn more about our solutions or schedule a personalized demo.
                 </p>
             </div>
             <div className="max-w-[36rem]  ">
-                <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-ash-100 rounded-2xl text-[13px] uppercase mb-10 ">
+                <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10 ">
                     Get in Touch
                 </span>
 
