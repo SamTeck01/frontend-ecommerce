@@ -58,7 +58,7 @@ return (
                                 </div>
                                 <div>
                                     <p className="text-ash text-sm">Email</p>
-                                    <p className="text-ash font-medium">samadoye28@gmail.com</p>
+                                    <p className="text-ash font-medium">Hive.bee.engineering@gmail.com </p>
                                 </div>
                             </div>
                             
@@ -78,7 +78,7 @@ return (
                                 </div>
                                 <div>
                                     <p className="text-ash text-sm">Address</p>
-                                    <p className="text-ash font-medium">Lagos state, Nigeria:</p>
+                                    <p className="text-ash font-medium">17, Olatunbosun Street, Mafoluku, Oshodi, Lagos State.</p>
                                 </div>
                             </div>
                         </div>

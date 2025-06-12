@@ -19,7 +19,7 @@ export default function About() {
               About Bee Energy
             </span>        
             <h2 className="h8 text-black">
-              Empowering Homes with <span className="text-gold">Sustainable Energy</span> with IoT Solutions
+              Empowering Homes with <span className="text-ash">Sustainable Energy</span> with IoT Solutions
             </h2>
             <p className="text-ash text-[18px] leading-relaxed mt-4 max-w-[36rem]">
               Join us on our mission to revolutionize home energy systems through innovative IoT-powered solutions, combining real-time monitoring, data-driven insights, and seamless integration for a cleaner, smarter, and more efficient future.
