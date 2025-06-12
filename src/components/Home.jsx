@@ -1,6 +1,6 @@
 
 import Hero from "./Hero.jsx";
-import Popular from "./About.jsx";
+import About from "./About.jsx";
 import Products from "./Products.jsx";
 import PlansSection from "./PlanSection.jsx";
 import WhyChooseUs from "./WhyChoosUs.jsx";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <Popular/>
+      <About/>
       <PlansSection/>
       <Products/>
       <Services/>

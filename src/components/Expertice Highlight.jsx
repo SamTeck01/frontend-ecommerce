@@ -3,7 +3,7 @@ import iot from '../assets/iot.jpg'
 
 const ExpertiseHighlight = () => {
   return (
-    <section id="expertise" className="py-12 px-4">
+    <section id="expertise" className="py-12 px-4 overflow-hidden">
       <div className="container mx-auto">
         {/* Heading */}
         <motion.div

@@ -1,26 +1,45 @@
-// src/components/PlansSection.jsx
-// src/components/PlanCard.jsx
-
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const PlanCard = ({ 
-  title, 
-  priceLabel, 
-  price, 
-  features = [], 
-  ctaText, 
-  onCtaClick, 
+// Animate one card at a time with slight delay
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.2,
+    },
+  }),
+};
+
+const PlanCard = ({
+  title,
+  priceLabel,
+  price,
+  features = [],
+  ctaText,
+  onCtaClick,
   bgColor = 'bg-white',
   iconBg = 'bg-ash',
   icon = 'cart',
-  textColor = 'text-gray-800' 
+  textColor = 'text-gray-800',
+  custom,
 }) => {
   return (
-    <div className={`rounded-xl p-8 transition-all duration-300 hover:shadow-xl ${bgColor} flex flex-col justify-between`}>
+    <motion.div
+      className={`rounded-xl p-8 transition-all duration-300 hover:shadow-xl ${bgColor} flex flex-col justify-between`}
+      variants={cardVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false }}
+      custom={custom}
+    >
       <div className={`w-16 h-16 rounded-full ${iconBg} flex items-center justify-center mb-6`}>
         <i className={`bx bx-${icon} text-[24px] text-white`}></i>
       </div>
-    
+
       {/* Header: Title + Price */}
       <div className="border-b flex items-center justify-between">
         <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>{title}</h3>
@@ -34,8 +53,7 @@ const PlanCard = ({
       <ul className="space-y-3 mb-1 py-4">
         {features.map((feat, idx) => (
           <li key={idx} className="flex items-start">
-            {/* A small check‐icon; you can swap for any icon library */}
-            <span className="mt-1 mr-2 text-green-500 ">
+            <span className="mt-1 mr-2 text-green-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="text-green-500 flex-shrink-0 h-5 w-5"
@@ -60,7 +78,7 @@ const PlanCard = ({
           {ctaText}
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -75,10 +93,10 @@ PlanCard.propTypes = {
   iconBg: PropTypes.string,
   icon: PropTypes.string,
   textColor: PropTypes.string,
+  custom: PropTypes.number,
 };
 
 const PlansSection = () => {
-  // Feature lists for each plan
   const basicFeatures = [
     '1.2KVA / 12V Inverter with 1-year warranty',
     '220AH / 12V Tall Tubular Battery (18 months warranty)',
@@ -93,9 +111,7 @@ const PlansSection = () => {
     'Solar Panel Installation Kit & Protective Devices',
   ];
 
-  // Handlers (you can replace with your own logic)
   const handleBasicCta = () => {
-    // e.g. navigate to checkout, or open a form modal
     alert('You clicked Get Basic Plan!');
   };
 
@@ -104,26 +120,32 @@ const PlansSection = () => {
   };
 
   return (
-    <section id='plans' className="px-4 py-12 mt-5">
+    <section id="plans" className="px-4 py-12 mt-5">
       <div className="container mx-auto">
-        {/* Section Header */}
-        <div className="max-w-[36rem]  ">
-          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10 ">
+        {/* Animated Section Header */}
+        <motion.div
+          className="max-w-[36rem]"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+        >
+          <span className="inline-flex items-center px-5 py-[6px] font-medium text-center text-black bg-gold2/30 rounded-2xl text-[13px] uppercase mb-10">
             Our Solar Plans
           </span>
 
-          <h2 className="h8 text-black ">Flexible Solar Plans for Every Need</h2>
+          <h2 className="h8 text-black">Flexible Solar Plans for Every Need</h2>
 
           <p className="text-ash text-[18px] my-4 leading-relaxed">
             Choose the plan that best fits your home’s energy needs. Both Basic and Premium plans
             come with smart, IoT-enabled technology—so you can monitor and control your system online.
           </p>
-        </div>
+        </motion.div>
 
         {/* Plan Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Basic Plan */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           <PlanCard
+            custom={0}
             title="Basic Plan"
             priceLabel="Limited Offer"
             price="₦450,000"
@@ -131,12 +153,12 @@ const PlansSection = () => {
             ctaText="Get Basic Plan"
             onCtaClick={handleBasicCta}
             bgColor="bg-white"
-            borderColor="border-ash"
+            icon="cart"
             textColor="text-ash"
           />
 
-          {/* Premium Plan */}
           <PlanCard
+            custom={1}
             title="Premium Plan"
             priceLabel="₦800,000"
             price="₦800,000"
@@ -144,7 +166,7 @@ const PlansSection = () => {
             ctaText="Get Premium Plan"
             onCtaClick={handlePremiumCta}
             bgColor="bg-yellow-50"
-            borderColor="border-yellow-400"
+            icon="star"
             textColor="text-ash"
           />
         </div>

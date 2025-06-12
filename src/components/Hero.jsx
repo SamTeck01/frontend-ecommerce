@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative bg-center bg-no-repeat mt-16 w-full">
+    <section id="home" className="relative bg-center bg-no-repeat pt-16 w-full">
         <div className="container mx-auto relative flex flex-col space-y-6 px-4 !pt-[59px] !md:pt-30   ">
           
             <div className="inline-block">
