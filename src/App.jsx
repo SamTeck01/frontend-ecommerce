@@ -1,4 +1,5 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom' 
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop.jsx';
 import Header from "./components/header.jsx"
 import Home from './components/Home.jsx';
 import PlansPage from './components/All Plans Page.jsx';
@@ -9,6 +10,7 @@ export default function App() {
   return (
     <main className="text-tertiary ">
       <BrowserRouter>
+        <ScrollToTop/>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const plans = [
   {
@@ -67,12 +67,11 @@ const PlansPage = () => {
                   <li key={idx}>✔ {feat}</li>
                 ))}
               </ul>
-              <Link
-                to={`/plans/${plan.slug}`}
+              <HashLink smooth to={`/plans/${plan.slug}`}
                 className="inline-block mt-2 px-4 py-2 bg-ash text-white rounded hover:bg-black transition"
               >
                 View Details
-              </Link>
+              </HashLink>
             </div>
           ))}
         </div>

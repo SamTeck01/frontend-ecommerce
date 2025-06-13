@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import SendWhatsAppMessage from './SendWhatsappMessage';
 import miniPlan from '../assets/bee mini plan.jpg';
 import midiPlan from '../assets/bee midi plan.jpg';
 
@@ -84,14 +85,13 @@ const PlanDetails = () => {
             ))}
           </ul>
 
-          <a
+          <button
             href={`https://wa.me/234XXXXXXXXXX?text=Hello,%20I'm%20interested%20in%20the%20${plan.title}%20plan.`}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={()=>SendWhatsAppMessage(`Hello, I'm interested in the ${plan.title} plan`)}
             className="inline-block mt-4 px-6 py-3 bg-ash text-white rounded hover:bg-black transition"
           >
             Chat on WhatsApp
-          </a>
+          </button>
         </div>
       </div>
     </section>
