@@ -7,7 +7,7 @@ const CardComponent = ({ title, description, image, to, productCount }) => {
       <section className='bg-grey-glass flex flex-col gap-3 p-[10px] rounded-[15px]'>
         {/*image */}
         <div>
-          <img src={image} className='rounded-[15px] h-[180px] w-[100vw] object-cover' />
+          <img src={image} className='rounded-[15px] w-[100vw] object-cover' />
         </div>
 
         {/*little info */}
