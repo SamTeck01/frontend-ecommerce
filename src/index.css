@@ -35,11 +35,18 @@ html{
 .bg-white-200{
   background-color: #ffffff3b;
 }
+.bg-grey-glass{
+  background-color: rgba(180, 179, 178, 0.7);
+  backdrop-filter: blur(8px);
+}
 .bg-ash-100{
   background-color: #57575768;
 }
 .bg-ash-200{
   background-color: #57575797;
+}
+.text-black-400{
+  color: rgb(49, 49, 49);
 }
 .my-transition-transform{
   transition-property: transform;

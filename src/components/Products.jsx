@@ -41,24 +41,28 @@ export default function Products() {
               description='Efficient DC to AC converters.'
               image={productImage1}
               to={'/'}
+              productCount={5}
             />
             <CardComponent
               title='Solar Panels'
               description='High-efficiency panels for reliable solar power.'
               image={productImage2}
               to={'/'}
+              productCount={5}
             />
             <CardComponent
               title='Battery Storage'
               description='Store solar energy for later use.'
               image={productImage1}
               to={'/'}
+              productCount={5}
             />        
             <CardComponent
               title='Monitoring Systems'
               description='Secure structures for panel installation.'
               image={productImage2}
               to={'/'}
+              productCount={5}
             />
           </div>
         </motion.div>
