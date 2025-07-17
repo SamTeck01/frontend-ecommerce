@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import beeMiniPlan from '../assets/bee mini plan.jpg';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
+import plans from '../assets/all_plans';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -132,69 +132,7 @@ PlanCard.propTypes = {
 };
 
 const PlansSection = () => {
-  const plans = [
-    {
-      title: 'Mini Basic',
-      slug: 'mini-basic',
-      price: '₦450,000',
-      priceLabel: 'Limited Offer',
-      features: [
-        '1.2KVA Inverter (1 year warranty)',
-        '220AH/12V Tall Tubular Battery',
-        'No Solar Panel',
-        'Battery Rack',
-        'Electrical Installation Kit Included',
-      ],
-      icon: 'sun',
-      bgColor: 'bg-white',
-    },
-    {
-      title: 'Mini Premium',
-      slug: 'mini-premium',
-      price: '₦800,000',
-      priceLabel: 'Most Popular',
-      features: [
-        '1.2KVA Inverter (1 year warranty)',
-        '220AH/12V Tall Tubular Battery',
-        '3× 250W Solar Panels',
-        'Solar Installation + Monitoring',
-        'And Lot More...',
-      ],
-      icon: 'bolt',
-      bgColor: 'bg-yellow-50',
-    },
-    {
-      title: 'Midi Basic',
-      slug: 'midi-basic',
-      price: '₦950,000',
-      priceLabel: 'Value Plan',
-      features: [
-        '2.5KVA Inverter (1 year warranty)',
-        '2× 220AH Batteries',
-        'Battery Rack',
-        '3× 300W Solar Panels',
-        'Battery Rack & Monitoring Kit',
-      ],
-      icon: 'home',
-      bgColor: 'bg-white',
-    },
-    {
-      title: 'Midi Premium',
-      slug: 'midi-premium',
-      price: '₦1,600,000',
-      priceLabel: 'Full Setup',
-      features: [
-        '5KVA Inverter (2 years warranty)',
-        '4× 220AH Batteries',
-        '6× 300W Solar Panels',
-        'Smart Monitoring & IoT Integration',
-        'Free Maintenance (6 Months)',
-      ],
-      icon: 'star',
-      bgColor: 'bg-yellow-50',
-    },
-  ];
-
+  
   return (
     <section id="plans" className="px-4 py-12 mt-5">
       <div className="container mx-auto">
@@ -218,7 +156,7 @@ const PlansSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 place-items-center">
           {plans.map((plan, index) => (<div key={plan.slug} >
             <PlanCard2
-              image={beeMiniPlan}
+              image={plan.image}
               title={plan.title}
               price={plan.price}
               slug={plan.slug}

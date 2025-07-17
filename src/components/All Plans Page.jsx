@@ -2,8 +2,7 @@ import { HashLink } from 'react-router-hash-link';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
-import beeMiniPlan from '../assets/bee mini plan.jpg';
-import beeMidiPlan from '../assets/bee midi plan.jpg';
+import plans from '../assets/all_plans';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -70,7 +69,7 @@ PlanCard2.propTypes = {
   custom: PropTypes.number.isRequired
 }
 
-const plans = [
+/*const plans = [
   {
     image: beeMiniPlan,
     title: 'Mini Basic',
@@ -120,7 +119,7 @@ const plans = [
       'Free Maintenance (6 Months)',
     ],
   },
-];
+];*/
 
 const PlansPage = () => {
   return (
