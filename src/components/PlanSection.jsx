@@ -221,6 +221,7 @@ const PlansSection = () => {
               image={beeMiniPlan}
               title={plan.title}
               price={plan.price}
+              slug={plan.slug}
               label={plan.priceLabel}
               features={plan.features}
               ctaText={`Get ${plan.title}`}
