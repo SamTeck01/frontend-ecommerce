@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import beeMiniPlan from '../assets/bee mini plan.jpg';
+import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -9,6 +11,64 @@ const cardVariant = {
     y: 0,
     transition: { duration: 0.6, delay: i * 0.2 },
   }),
+};
+
+const PlanCard2 = ({ image, title, price, slug, features = [], label = 'Popular', ctaText, custom }) => {
+  return (
+    <motion.div
+      className={`rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden w-[280px] min-w-[200px] mb-2`}
+      variants={cardVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false }}
+      custom={custom}
+    >
+      {/* Image */}
+      <div className="relative">
+        <img src={image} alt={title} className="h-40 w-full object-cover"/>
+        <span className="absolute top-3 left-3 bg-white text-black text-xs font-medium px-2 py-1 rounded-full shadow">
+          {label}
+        </span>
+      </div>
+
+      {/* Details */}
+      <div className="p-4">
+        <h3 className="text-[17px] font-semibold text-gray-800">{title}</h3>
+        <p className="text-lg font-bold text-gold2 mt-1">{price}</p>
+
+        <ul className="space-y-1 mt-3 text-gray-500 text-sm">
+          {features.map((feat, idx) => (
+            <li key={idx} className="flex items-center gap-2">
+              <ShieldCheck size={14} className="text-green-500"/> {feat}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center justify-between mt-5">
+          <Link
+            to={`/plans/${slug}`} className="text-sm text-white bg-gold2 px-4 py-2 rounded-full hover:bg-black transition">
+            {ctaText}
+          </Link>
+
+          <div className="flex items-center gap-3 text-gray-400">
+            <Heart size={18} className="hover:text-gold2 cursor-pointer"/>
+            <Share2 size={18} className="hover:text-gold2 cursor-pointer"/>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+PlanCard2.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  features: PropTypes.arrayOf(PropTypes.string),
+  label: PropTypes.string,
+  ctaText: PropTypes.string,
+  custom: PropTypes.number,
 };
 
 const PlanCard = ({ title, priceLabel, price, features = [], slug, bgColor = 'bg-white', iconBg = 'bg-ash', icon = 'cart', textColor = 'text-gray-800', custom }) => {
@@ -97,9 +157,8 @@ const PlansSection = () => {
         '1.2KVA Inverter (1 year warranty)',
         '220AH/12V Tall Tubular Battery',
         '3× 250W Solar Panels',
-        'Battery Rack',
-        'Solar Panel Charge Controller and Solar Panel Cable',
         'Solar Installation + Monitoring',
+        'And Lot More...',
       ],
       icon: 'bolt',
       bgColor: 'bg-yellow-50',
@@ -112,6 +171,7 @@ const PlansSection = () => {
       features: [
         '2.5KVA Inverter (1 year warranty)',
         '2× 220AH Batteries',
+        'Battery Rack',
         '3× 300W Solar Panels',
         'Battery Rack & Monitoring Kit',
       ],
@@ -155,10 +215,19 @@ const PlansSection = () => {
             Explore a few of our most selected plans. Want more? Visit the full plans page for all available packages.
           </p>
         </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 place-items-center">
+          {plans.map((plan, index) => (<div key={plan.slug} >
+            <PlanCard2
+              image={beeMiniPlan}
+              title={plan.title}
+              price={plan.price}
+              label={plan.priceLabel}
+              features={plan.features}
+              ctaText={`Get ${plan.title}`}
+              custom={index}
+            />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {plans.map((plan, index) => (
-            <PlanCard
+            {/*<PlanCard
               key={plan.slug}
               custom={index}
               title={plan.title}
@@ -169,8 +238,8 @@ const PlansSection = () => {
               icon={plan.icon}
               bgColor={plan.bgColor}
               textColor="text-ash"
-            />
-          ))}
+            />*/}
+          </div>))}
         </div>
 
         <div className="mt-12 text-center">
