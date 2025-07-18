@@ -79,13 +79,13 @@ const PlanDetails = () => {
 
           {/* Similar Plans Section */}
           <div className="!w-full bg-white md:bg-transparent py-3 px-2 rounded-lg shadow-md">
-            <h2 className="text-xl font-medium text-gray-800 ps-1">Customers Also Viewed</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <h2 className="text-xl font-medium text-gray-800 ps-1 mb-2">Customers Also Viewed</h2>
+            <div className="flex flex-col overflow-scroll gap-6">
               {similarPlans.map((similar, idx) => (
                 <Link 
                   to={`/plan/${similar.slug}`} 
-                  key={idx} 
-                  className="rounded-lg hover:shadow-md transition bg-white block"
+                  key={idx}
+                  className=" rounded-lg hover:shadow-md transition bg-white block"
                 >
                   <img src={similar.image} alt={similar.title} className="w-full h-40 object-cover rounded-md mb-3" />
                   <h3 className="text-lg font-semibold text-gray-700">{similar.title}</h3>
