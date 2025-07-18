@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import plans from '../assets/all_plans';
-import { Star, ShoppingCart, AlertCircle, Info, DollarSign } from 'lucide-react';
+import { Star, ShoppingCart, AlertCircle, Info, DollarSign, Eye } from 'lucide-react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
+import { Link } from 'react-router-dom';
 
 const PlanDetails = () => {
   const { slug } = useParams();
@@ -10,6 +11,10 @@ const PlanDetails = () => {
   if (!plan) {
     return <p className="text-center mt-20 text-red-500">Plan not found</p>;
   }
+
+  // Filter out the current plan to show others
+  const similarPlans = plans.filter(p => p.slug !== slug).slice(0, 3); // Show top 3
+
 
   return (
      <section className="px-4 py-24 ">
@@ -62,6 +67,7 @@ const PlanDetails = () => {
               <ShoppingCart size={18}/> <span>Chat on Whatsapp</span> <div></div>
             </button>
           </div>
+
           <div className="show md:hidden bg-white md:bg-transparent p-3 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold mb-2 text-gray-700">Promotions</h3>
             <ul className="space-y-2 text-gray-600 text-sm">
@@ -69,6 +75,27 @@ const PlanDetails = () => {
               <li className="flex items-center gap-2"><DollarSign size={16}/> Flexible payment options available</li>
               <li className="flex items-center gap-2"><AlertCircle size={16}/> 18-month battery warranty</li>
             </ul>
+          </div>
+
+          {/* Similar Plans Section */}
+          <div className="!w-full bg-white md:bg-transparent py-3 px-2 rounded-lg shadow-md">
+            <h2 className="text-xl font-medium text-gray-800 ps-1">Customers Also Viewed</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {similarPlans.map((similar, idx) => (
+                <Link 
+                  to={`/plan/${similar.slug}`} 
+                  key={idx} 
+                  className="rounded-lg hover:shadow-md transition bg-white block"
+                >
+                  <img src={similar.image} alt={similar.title} className="w-full h-40 object-cover rounded-md mb-3" />
+                  <h3 className="text-lg font-semibold text-gray-700">{similar.title}</h3>
+                  <p className="text-gold2 font-bold">{similar.price}</p>
+                  <button className="flex items-center text-ash mt-2 text-sm hover:underline">
+                    <Eye size={16} className="mr-1" /> View Plan
+                  </button>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
