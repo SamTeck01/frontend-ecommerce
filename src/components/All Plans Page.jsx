@@ -13,7 +13,7 @@ const cardVariant = {
   }),
 };
 
-const PlanCard2 = ({ image, title, price, slug, features = [], label = 'Popular', ctaText, custom }) => {
+const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaText, custom }) => {
   return (
     <motion.div
       className={`rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden w-[280px] min-w-[200px] mb-2`}
@@ -27,7 +27,7 @@ const PlanCard2 = ({ image, title, price, slug, features = [], label = 'Popular'
       <div className="relative">
         <img src={image} alt={title} className="h-40 w-full object-cover"/>
         <span className="absolute top-3 left-3 bg-white text-black text-xs font-medium px-2 py-1 rounded-full shadow">
-          {label}
+          {priceLabel}
         </span>
       </div>
 
@@ -64,62 +64,10 @@ PlanCard2.propTypes = {
   price: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   features: PropTypes.arrayOf(PropTypes.string),
-  label: PropTypes.string.isRequired,
+  priceLabel: PropTypes.string.isRequired,
   ctaText: PropTypes.string.isRequired,
   custom: PropTypes.number.isRequired
 }
-
-/*const plans = [
-  {
-    image: beeMiniPlan,
-    title: 'Mini Basic',
-    slug: 'mini-basic',
-    price: '₦350,000',
-    features: [
-      '0.8KVA Inverter (1 year warranty)',
-      '150AH Battery',
-      'No Solar Panel',
-      'Installation Kit Included',
-    ],
-  },
-  {
-    image: beeMiniPlan,
-    title: 'Mini Premium',
-    slug: 'mini-premium',
-    price: '₦600,000',
-    features: [
-      '1.2KVA Inverter (1 year warranty)',
-      '220AH Battery',
-      '2× 250W Solar Panels',
-      'Installation + Monitoring',
-    ],
-  },
-  {
-    image: beeMidiPlan,
-    title: 'Midi Basic',
-    slug: 'midi-basic',
-    price: '₦950,000',
-    features: [
-      '2.5KVA Inverter (1 year warranty)',
-      '2× 220AH Batteries',
-      '3× 300W Solar Panels',
-      'Battery Rack & Monitoring Kit',
-    ],
-  },
-  {
-    image: beeMidiPlan,
-    title: 'Midi Premium',
-    slug: 'midi-premium',
-    price: '₦1,600,000',
-    features: [
-      '5KVA Inverter (2 years warranty)',
-      '4× 220AH Batteries',
-      '6× 300W Solar Panels',
-      'Smart Monitoring & IoT Integration',
-      'Free Maintenance (6 Months)',
-    ],
-  },
-];*/
 
 const PlansPage = () => {
   return (
@@ -141,6 +89,7 @@ const PlansPage = () => {
                 features={plan.features}
                 ctaText={`Get ${plan.title}`}
                 custom={index}
+                priceLabel={plan.priceLabel}
               />
               {/*<div className="border p-6 rounded-lg shadow-md hover:shadow-xl transition-all">
                 <h2 className="text-xl font-semibold mb-2">{plan.title}</h2>

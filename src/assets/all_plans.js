@@ -50,10 +50,10 @@ const plans = [
     priceLabel: 'Value Plan',
     features: [
     '2.5KVA/24V Inverter (1 year warranty)',
-    '2× 220AH/12v Tall Tubular Batteries',
+    '220AH/12v Tall Tubular Batteries',
     'Battery Rack',
-    '3× 300W Solar Panels',
-    'Battery Rack & Monitoring Kit',
+    '2× 250W Solar Panels',
+    'Electrical Installation & Monitoring Kit',
     ],
     fullFeatures: [
     '2.5KVA/24v Inverter (1 year warranty)',
@@ -68,14 +68,14 @@ const plans = [
   {
     title: 'Midi Premium',
     slug: 'midi-premium',
-    price: '₦1,600,000',
+    price: '₦1,800,000',
     priceLabel: 'Full Setup',
     features: [
-    '5KVA Inverter (2 years warranty)',
-    '4× 220AH Batteries',
-    '6× 300W Solar Panels',
+    '2.5KVA/24V Inverter (2 years warranty)',
+    '2× 220AH/12V Tubular Batteries',
+    '6× 250W Solar Panels',
     'Smart Monitoring & IoT Integration',
-    'Free Maintenance (6 Months)',
+    'MPPT Solar Charge Controller'
     ],
     fullFeatures: [
     '2.5KVA/24v Inverter (1 year warranty)',

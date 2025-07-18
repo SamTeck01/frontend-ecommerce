@@ -13,7 +13,7 @@ const cardVariant = {
   }),
 };
 
-const PlanCard2 = ({ image, title, price, slug, features = [], label = 'Popular', ctaText, custom }) => {
+const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaText, custom }) => {
   return (
     <motion.div
       className={`rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden w-[280px] min-w-[200px] mb-2`}
@@ -27,7 +27,7 @@ const PlanCard2 = ({ image, title, price, slug, features = [], label = 'Popular'
       <div className="relative">
         <img src={image} alt={title} className="h-40 w-full object-cover"/>
         <span className="absolute top-3 left-3 bg-white text-black text-xs font-medium px-2 py-1 rounded-full shadow">
-          {label}
+          {priceLabel}
         </span>
       </div>
 
@@ -66,7 +66,7 @@ PlanCard2.propTypes = {
   price: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   features: PropTypes.arrayOf(PropTypes.string),
-  label: PropTypes.string,
+  priceLabel: PropTypes.string,
   ctaText: PropTypes.string,
   custom: PropTypes.number,
 };
@@ -164,20 +164,8 @@ const PlansSection = () => {
               features={plan.features}
               ctaText={`Get ${plan.title}`}
               custom={index}
-            />
-
-            {/*<PlanCard
-              key={plan.slug}
-              custom={index}
-              title={plan.title}
-              price={plan.price}
               priceLabel={plan.priceLabel}
-              features={plan.features}
-              slug={plan.slug}
-              icon={plan.icon}
-              bgColor={plan.bgColor}
-              textColor="text-ash"
-            />*/}
+            />
           </div>))}
         </div>
 
