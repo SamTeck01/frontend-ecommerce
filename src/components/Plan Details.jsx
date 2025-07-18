@@ -1,4 +1,85 @@
 import { useParams } from 'react-router-dom';
+import plans from '../assets/all_plans';
+import { Star, ShoppingCart, AlertCircle, Info, DollarSign } from 'lucide-react';
+import SendWhatsAppMessage from './SendWhatsappMessage';
+
+const PlanDetails = () => {
+  const { slug } = useParams();
+  const plan = plans.find((item) => item.slug === slug);
+
+  if (!plan) {
+    return <p className="text-center mt-20 text-red-500">Plan not found</p>;
+  }
+
+  return (
+     <section className="px-4 py-24 ">
+      <div className="container mx-auto flex flex-wrap gap-16 ">
+        <div className="md:bg-white bg-transparent p-5 rounded-lg grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-2 md:gap-12 md:w-[75%] w-full">
+          {/* Image */}
+          <div className='md:w-[280px] w-full flexCenter md:flex md:items-start flex-col bg-white md:bg-transparent p-3 rounded-lg shadow-md'>
+            <div>
+              <img 
+                src={plan.image} 
+                alt={plan.title} 
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>  
+
+            <div className="mt-6 hidden md:grid">
+              <h3 className="text-lg font-semibold mb-2 text-gray-700">Promotions</h3>
+              <ul className="space-y-2 text-gray-600 text-sm">
+                <li className="flex items-center gap-2"><Info size={16}/> Free Installation in Lagos</li>
+                <li className="flex items-center gap-2"><DollarSign size={16}/> Flexible payment options available</li>
+                <li className="flex items-center gap-2"><AlertCircle size={16}/> 18-month battery warranty</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Details */}
+          <div className='w-full bg-white md:bg-transparent p-3 rounded-lg '>
+            <h1 className="text-2xl font-bold text-gray-800">{plan.title}</h1>
+            <p className="text-gray-500 mt-1">{plan.subtext || 'Smart Energy Plan for Modern Homes'}</p>
+
+            <p className="text-2xl text-gray-800 font-bold mt-3">{plan.price}</p>
+
+            <div className="flex items-center gap-1 mt-2 text-yellow-500">
+              {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor"/>)}
+              <span className="text-gray-500 text-sm ml-1">(5 ratings)</span>
+            </div>
+
+            <ul className="space-y-1 my-4 text-gray-600">
+              {plan.features.map((feat, idx) => (
+                <li key={idx} className="flex items-center gap-2">
+                  <AlertCircle size={14} className="text-green-600"/> {feat}
+                </li>
+              ))}
+            </ul>
+
+            <button 
+              onClick={() => SendWhatsAppMessage(`Hello, I'm interested in the ${plan.title} plan`)} 
+              className="bg-gold2 hover:bg-gold2/80 text-white font-medium px-6 py-3 rounded-md flex justify-between items-center gap-2 mt-3 transition w-full"
+              >
+              <ShoppingCart size={18}/> <span>Chat on Whatsapp</span> <div></div>
+            </button>
+          </div>
+          <div className="show md:hidden bg-white md:bg-transparent p-3 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold mb-2 text-gray-700">Promotions</h3>
+            <ul className="space-y-2 text-gray-600 text-sm">
+              <li className="flex items-center gap-2"><Info size={16}/> Free Installation in Lagos</li>
+              <li className="flex items-center gap-2"><DollarSign size={16}/> Flexible payment options available</li>
+              <li className="flex items-center gap-2"><AlertCircle size={16}/> 18-month battery warranty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PlanDetails;
+
+
+/*import { useParams } from 'react-router-dom';
 import SendWhatsAppMessage from './SendWhatsappMessage';
 import plans from '../assets/all_plans';
 
@@ -41,4 +122,4 @@ const PlanDetails = () => {
   );
 };
 
-export default PlanDetails;
+export default PlanDetails;*/
