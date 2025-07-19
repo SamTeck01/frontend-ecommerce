@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/IMG-20250526-WA0150.png';
 import { useState, useEffect } from 'react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
+import { Menu, MessageCircleDashed, X } from "lucide-react";
+import { Home, Info, Package, Box, Wrench, Phone, Heart } from "lucide-react";
 
 const NewHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +32,8 @@ const NewHeader = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Import Lucide icons
+
   return (
     <>
       <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-gold py-4'}`}>
@@ -51,7 +55,10 @@ const NewHeader = () => {
               <HashLink smooth to="/#contact" className={linkClass('#contact')} onClick={() => handleClick('#contact')}>Contact</HashLink>
             </nav>
 
-            <div className="hidden md:block">
+            <div className="hidden md:flexCenter">
+              <HashLink smooth to="/wishlist" className="text-black font-medium transition duration-300 mt-1">
+                <span className="inline-flex items-center gap-2 "><Heart size={18} />Wishlist</span>
+              </HashLink>
               <button
                 onClick={() => SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
                 className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 text-white hover:text-gold' : 'bg-transparent'} text-black px-6 py-2 rounded-md font-medium transition duration-300`}
@@ -65,7 +72,7 @@ const NewHeader = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-primary-900 focus:outline-none"
               >
-                {isOpen ? <i className='bx bx-x text-3xl'></i> : <i className='bx text-3xl bx-menu'></i>}
+                {isOpen ? <X size={32} /> : <Menu size={32} />}
               </button>
             
               {/* ✅ CTA Button for mobile */}
@@ -88,17 +95,32 @@ const NewHeader = () => {
               transition={{ duration: 0.3 }}
             >
               <nav className="flex flex-col space-y-4">
-                <HashLink smooth to="/#home" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">Home</HashLink>
-                <HashLink smooth to="/#about" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">About</HashLink>
-                <HashLink smooth to="/plans" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">Plans</HashLink>
-                <HashLink smooth to="/#products" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">Products</HashLink>
-                <HashLink smooth to="/#services" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">Services</HashLink>
-                <HashLink smooth to="/#contact" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">Contact</HashLink>
+                <HashLink smooth to="/#home" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Home size={18} />Home</span>
+                </HashLink>
+                <HashLink smooth to="/#about" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Info size={18} />About</span>
+                </HashLink>
+                <HashLink smooth to="/plans" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Package size={18} />Plans</span>
+                </HashLink>
+                <HashLink smooth to="/#products" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Box size={18} />Products</span>
+                </HashLink>
+                <HashLink smooth to="/#services" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Wrench size={18} />Services</span>
+                </HashLink>
+                <HashLink smooth to="/#contact" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Phone size={18} />Contact</span>
+                </HashLink>
+                <HashLink smooth to="/wishlist" className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Heart size={18} />Wishlist</span>
+                </HashLink>
                 <button
                   onClick={() => SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
-                  className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold text-white' : 'bg-transparent text-black'} px-6 py-2 rounded-md font-medium transition duration-300 w-full`}
+                  className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 hover:text-gold text-white' : 'bg-transparent text-black'} px-6 py-2 rounded-md font-medium transition duration-300 w-full flexCenter gap-2`}
                 >
-                  Chat with us
+                  <MessageCircleDashed/> <span>Chat with us</span>
                 </button>
               </nav>
             </motion.div>
