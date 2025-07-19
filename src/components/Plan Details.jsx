@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import plans from '../assets/all_plans';
-import { Star, ShoppingCart, AlertCircle, Info, DollarSign, Eye } from 'lucide-react';
+import { Star, ShoppingCart, AlertCircle, Info, DollarSign } from 'lucide-react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
 import { Link } from 'react-router-dom';
 
@@ -18,8 +18,8 @@ const PlanDetails = () => {
 
   return (
      <section className="px-4 py-24 ">
-      <div className="container mx-auto flex flex-wrap gap-16 ">
-        <div className="md:bg-white bg-transparent p-5 rounded-lg grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-2 md:gap-12 md:w-[75%] w-full">
+      <div className="md:container w-90 -mx-1 md:mx-auto flex flex-wrap gap-16 ">
+        <div className="md:bg-white bg-transparent rounded-lg grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-2 md:gap-12 md:w-[75%] w-full">
           {/* Image */}
           <div className='md:w-[280px] w-full flexCenter md:flex md:items-start flex-col bg-white md:bg-transparent p-3 rounded-lg shadow-md'>
             <div>
@@ -78,23 +78,24 @@ const PlanDetails = () => {
           </div>
 
           {/* Similar Plans Section */}
-          <div className="!w-full bg-white md:bg-transparent py-3 px-2 rounded-lg shadow-md">
+          <div className=" bg-white md:bg-transparent py-3 px-2 rounded-lg shadow-md">
             <h2 className="text-xl font-medium text-gray-800 ps-1 mb-2">Customers Also Viewed</h2>
-            <div className="flex flex-col overflow-scroll gap-6">
-              {similarPlans.map((similar, idx) => (
-                <Link 
-                  to={`/plan/${similar.slug}`} 
-                  key={idx}
-                  className=" rounded-lg hover:shadow-md transition bg-white block"
-                >
-                  <img src={similar.image} alt={similar.title} className="w-full h-40 object-cover rounded-md mb-3" />
-                  <h3 className="text-lg font-semibold text-gray-700">{similar.title}</h3>
-                  <p className="text-gold2 font-bold">{similar.price}</p>
-                  <button className="flex items-center text-ash mt-2 text-sm hover:underline">
-                    <Eye size={16} className="mr-1" /> View Plan
-                  </button>
-                </Link>
-              ))}
+            <div className='overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory' >
+              <div className="flex gap-3">
+                {similarPlans.map((similar, idx) => (
+                  <Link 
+                    to={`/plan/${similar.slug}`} 
+                    key={idx}
+                    className="w-52 shrink-0 rounded-lg hover:shadow-md transition bg-white inline-block snap-start"
+                  >
+                    <img src={similar.image} alt={similar.title} className="w-full h-40 object-cover rounded-md mb-1.5" />
+                    <div className='px-1 pb-1'>
+                      <h3 className="text-lg font-semibold text-gray-700">{similar.title}</h3>
+                      <p className="text-gold2 font-bold">{similar.price}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
