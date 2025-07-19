@@ -55,13 +55,13 @@ const NewHeader = () => {
               <HashLink smooth to="/#contact" className={linkClass('#contact')} onClick={() => handleClick('#contact')}>Contact</HashLink>
             </nav>
 
-            <div className="hidden md:flexCenter">
+            <div className="hidden md:flexCenter gap-2">
               <HashLink smooth to="/wishlist" className="text-black font-medium transition duration-300 mt-1">
                 <span className="inline-flex items-center gap-2 "><Heart size={18} />Wishlist</span>
               </HashLink>
               <button
                 onClick={() => SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}
-                className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent hover:border-gold hover:border-2 text-white hover:text-gold' : 'bg-transparent'} text-black px-6 py-2 rounded-md font-medium transition duration-300`}
+                className={`${scrolled ? 'bg-[#E49900] hover:bg-transparent text-white hover:text-gold2 border-2 border-gold2' : 'bg-transparent'} text-black px-5 py-1 rounded-md font-medium transition duration-300`}
               >
                 Chat with us
               </button>
