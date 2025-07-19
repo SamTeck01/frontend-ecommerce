@@ -49,7 +49,7 @@ const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaTe
             {ctaText}
           </HashLink>
 
-          <div className="flex items-center gap-3 text-gray-400">
+          <div className="flex items-center gap-3 ash">
             <Heart size={18} className="hover:text-gold2 cursor-pointer"/>
             <Share2 size={18} className="hover:text-gold2 cursor-pointer"/>
           </div>
