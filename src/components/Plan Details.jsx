@@ -6,13 +6,26 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { useWishlist } from './WishlistContext';
 
 
 const PlanDetails = () => {
   
+  const {wishlist, toggleWishlist} = useWishlist();
+  const [showToast, setShowToast] = useState(false);
+  const handleWishlistToggle = () => {
+    toggleWishlist(plan.slug);
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000); // 3 seconds
+  };
+  
   const { slug } = useParams();
   const plan = plans.find((item) => item.slug === slug);
-
+  
+  const isWishlisted = wishlist.includes(plan.slug);
   // Initialize all indices as open by default, safely handle missing plan
   const [openSections, setOpenSections] = useState(
     plan && plan.description ? plan.description.map(() => true) : []
@@ -45,10 +58,26 @@ const PlanDetails = () => {
     }
   };
 
-
   return (
      <section className="px-4 py-24 ">
-      <div className="md:container w-90 -mx-1 md:mx-auto ">
+      <div className="md:container w-90 -mx-1 md:mx-auto relative">
+        {/*Toast Notification */}
+        <AnimatePresence>
+          {showToast && (
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.5 }}
+              className="fixed top-16 left-auto bg-green-600 text-white px-6 py-3 rounded shadow-lg z-50 w-[94.5%] md:w-[80%] flex items-center justify-between"
+            >
+              {isWishlisted ? 'Plan Successfully Wishlisted' : 'Removed from Wishlist'}
+              <HashLink smooth to="/wishlist" className="text-white underline ml-2">
+                View Wishlist
+              </HashLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Breadcrumbs */}
         <nav className="text-sm text-gray-600 flex items-center mb-3 ms-2 space-x-2">
@@ -90,13 +119,25 @@ const PlanDetails = () => {
               <p className="text-2xl text-gray-800 font-bold mt-3">{plan.price}</p>
 
               <div className='flex justify-between' >
-                <div className="flex items-center gap-1 mt-2 text-yellow-500">
+                <div className="flex items-center gap-1 mt-2 text-gold2">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor"/>)}
                   <span className="text-gray-500 text-sm ml-1">(5 ratings)</span>
                 </div>
-                <div className="flex items-center gap-3 text-ash">
-                  <Heart size={20} className="hover:text-gold2 cursor-pointer"/>
-                  <Share2 size={20} className="hover:text-gold2 cursor-pointer" onClick={handleShare}/>
+
+                <div className="flex items-center gap-3">
+                  <motion.span
+                    whileTap={{ scale: 0.8 }}
+                    onClick={handleWishlistToggle}
+                    className="cursor-pointer"
+                  >
+                    {isWishlisted ? (
+                      <Heart size={20} fill='#e49900' stroke='#e49900' />
+                    ) : (
+                      <Heart size={20} className="text-gold2" />
+                    )}
+                  </motion.span>
+
+                  <Share2 size={20} className="text-gold2 cursor-pointer" onClick={handleShare}/>
                 </div>
               </div> 
 

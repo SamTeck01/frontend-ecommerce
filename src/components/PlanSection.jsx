@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
 import plans from '../assets/all_plans';
+import { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import { useWishlist } from './WishlistContext';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -13,7 +16,24 @@ const cardVariant = {
   }),
 };
 
-const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaText, custom }) => {
+const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaText, custom, onToast }) => {
+  const {wishlist, toggleWishlist} = useWishlist();
+  const isWishlisted = wishlist.includes(slug);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: `Check out this energy plan: ${title} for ${price}.`,
+        url: window.location.href
+      })
+      .then(() => console.log('Shared successfully'))
+      .catch((error) => console.log('Share failed', error));
+    } else {
+      alert('Sharing not supported on this browser. Copy the link manually.');
+    }
+  };
+  
   return (
     <motion.div
       className={`rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden w-[280px] min-w-[200px] mb-2`}
@@ -50,9 +70,24 @@ const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaTe
             {ctaText}
           </Link>
 
-          <div className="flex items-center gap-3 text-gray-400">
-            <Heart size={18} className="hover:text-gold2 cursor-pointer"/>
-            <Share2 size={18} className="hover:text-gold2 cursor-pointer"/>
+          <div className="flex items-center gap-3">
+            <motion.span
+              whileTap={{ scale: 0.8 }}
+              onClick={()=>{
+                toggleWishlist(slug);
+                onToast(`${isWishlisted ? 'Removed from Wishlist' : 'Plan Successfully Wishlisted'}`);
+              }}
+              className="cursor-pointer"
+            >
+              {isWishlisted ? (
+                <Heart size={20} fill='#e49900' stroke='#e49900' />
+              ) : (
+                <Heart size={20} className="text-gold2" />
+              )}
+            </motion.span>
+
+            <Share2 size={20} className="text-gold2 cursor-pointer" onClick={handleShare}/>
+                
           </div>
         </div>
       </div>
@@ -69,72 +104,35 @@ PlanCard2.propTypes = {
   priceLabel: PropTypes.string,
   ctaText: PropTypes.string,
   custom: PropTypes.number,
-};
-
-const PlanCard = ({ title, priceLabel, price, features = [], slug, bgColor = 'bg-white', iconBg = 'bg-ash', icon = 'cart', textColor = 'text-gray-800', custom }) => {
-  return (
-    <motion.div
-      className={`rounded-xl p-8 transition-all duration-300 hover:shadow-xl ${bgColor} flex flex-col justify-between`}
-      variants={cardVariant}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false }}
-      custom={custom}
-    >
-      <div className={`w-16 h-16 rounded-full ${iconBg} flex items-center justify-center mb-6`}>
-        <i className={`bx bx-${icon} text-[24px] text-white`}></i>
-      </div>
-
-      <div className="border-b flex items-center justify-between">
-        <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>{title}</h3>
-        <div className="text-right">
-          <p className="text-2xl font-bold">{price}</p>
-          <p className="text-sm font-medium text-ash mb-1">{priceLabel}</p>
-        </div>
-      </div>
-
-      <ul className="space-y-3 mb-1 py-4">
-        {features.slice(0, 3).map((feat, idx) => (
-          <li key={idx} className="flex items-start">
-            <span className="mt-1 mr-2 text-green-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-              </svg>
-            </span>
-            <p className={`${textColor}`}>{feat}</p>
-          </li>
-        ))}
-      </ul>
-
-      <div className="pt-4 border-t">
-        <Link
-          to={`/plans/${slug}`}
-          className="block w-full text-center bg-transparent text-ash border-2 border-ash hover:bg-ash hover:text-white py-3 rounded-md font-medium transition duration-300"
-        >
-          See Details
-        </Link>
-      </div>
-    </motion.div>
-  );
-};
-
-PlanCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  priceLabel: PropTypes.string,
-  price: PropTypes.string.isRequired,
-  features: PropTypes.arrayOf(PropTypes.string),
-  slug: PropTypes.string.isRequired,
-  bgColor: PropTypes.string,
-  iconBg: PropTypes.string,
-  icon: PropTypes.string,
-  textColor: PropTypes.string,
-  custom: PropTypes.number,
+  onToast: PropTypes.func.isRequired,
 };
 
 const PlansSection = () => {
-  
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  const triggerToast = (message) => {
+    setToastMessage(message);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
   return (
     <section id="plans" className="px-4 py-12 mt-5">
+
+      {showToast && (
+        <motion.div 
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          className="fixed top-20 right-4 bg-green-50 text-white px-4 py-2 rounded-lg shadow-lg z-50"
+        >
+          {toastMessage}
+          <HashLink smooth to="/wishlist" className="text-white underline ml-2">
+            View Wishlist
+          </HashLink>
+        </motion.div>
+      )}
+
       <div className="container mx-auto">
         <motion.div
           className="max-w-[36rem]"
@@ -165,6 +163,7 @@ const PlansSection = () => {
               ctaText={`Get ${plan.title}`}
               custom={index}
               priceLabel={plan.priceLabel}
+              onToast={triggerToast}
             />
           </div>))}
         </div>
