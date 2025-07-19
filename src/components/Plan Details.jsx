@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import plans from '../assets/all_plans';
-import { Star, ShoppingCart, AlertCircle, Info, DollarSign } from 'lucide-react';
+import { Star, ShoppingCart, AlertCircle, Info, DollarSign, ChevronRight } from 'lucide-react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
 import { Link } from 'react-router-dom';
 
@@ -18,8 +18,19 @@ const PlanDetails = () => {
 
   return (
      <section className="px-4 py-24 ">
-      <div className="md:container w-90 -mx-1 md:mx-auto flex flex-wrap gap-16 ">
-        <div className="md:bg-white bg-transparent rounded-lg grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-2 md:gap-12 md:w-[75%] w-full">
+      <div className="md:container w-90 -mx-1 md:mx-auto ">
+
+        {/* Breadcrumbs */}
+        <nav className="text-sm text-gray-600 flex items-center mb-3 ms-2 space-x-2">
+          <Link to="/" className="hover:text-gold2">Home</Link>
+          <ChevronRight size={16} />
+          <Link to="/plans" className="hover:text-gold2">Plans</Link>
+          <ChevronRight size={16} />
+          <span className="text-gray-800 font-medium">{plan.title}</span>
+        </nav>
+
+        <div className="md:bg-white rounded-lg grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-2 md:gap-12 md:w-[75%] w-full">
+
           {/* Image */}
           <div className='md:w-[280px] w-full flexCenter md:flex md:items-start flex-col bg-white md:bg-transparent p-3 rounded-lg shadow-md'>
             <div>
@@ -98,56 +109,13 @@ const PlanDetails = () => {
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
+
     </section>
   );
 };
 
 export default PlanDetails;
-
-
-/*import { useParams } from 'react-router-dom';
-import SendWhatsAppMessage from './SendWhatsappMessage';
-import plans from '../assets/all_plans';
-
-const PlanDetails = () => {
-  const { slug } = useParams();
-  const plan = plans.find((item) => item.slug === slug);
-
-  if (!plan) {
-    return <p className="text-center mt-20 text-red-500">Plan not found</p>;
-  }
-
-  return (
-    <section className="px-4 py-24">
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <img src={plan.image} alt={plan.title} className="w-full rounded-lg shadow-md" />
-        </div>
-
-        <div>
-          <h1 className="text-3xl font-bold mb-2 text-ash">{plan.title}</h1>
-          <p className="text-gold2 font-bold text-xl mb-4">{plan.price}</p>
-          <p className="text-ash mb-4">{plan.description}</p>
-
-          <ul className="space-y-2 mb-4">
-            {plan.features.map((f, i) => (
-              <li key={i} className="text-sm text-ash">✔ {f}</li>
-            ))}
-          </ul>
-
-          <button
-            href={`https://wa.me/234XXXXXXXXXX?text=Hello,%20I'm%20interested%20in%20the%20${plan.title}%20plan.`}
-            onClick={()=>SendWhatsAppMessage(`Hello, I'm interested in the ${plan.title} plan`)}
-            className="inline-block mt-4 px-6 py-3 bg-ash text-white rounded hover:bg-black transition"
-          >
-            Chat on WhatsApp
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default PlanDetails;*/

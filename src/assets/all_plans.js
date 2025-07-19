@@ -8,13 +8,37 @@ const plans = [
     price: '₦450,000',
     priceLabel: 'Limited Offer',
     features: [
-    '1.2KVA/12v Inverter (1 year warranty)',
-    '220AH/12V Tall Tubular Battery',
-    'No Solar Panel',
-    'Battery Rack',
-    'Electrical Installation Kit Included',
+      '1.2KVA/12v Inverter (1 year warranty)',
+      '220AH/12V Tall Tubular Battery',
+      'No Solar Panel',
+      'Battery Rack',
+      'Electrical Installation Kit Included',
     ],
-    description: 'Ideal for small homes and minimal energy users. Easy to install and budget-friendly.',
+    description: `
+General:
+- Plan Type: Mini Basic
+- Inverter Capacity: 1.2KVA / 12V (Pure Sine Wave)
+- Battery: 220AH/12V Tall Tubular (18 months warranty)
+- Solar Panel: None
+- Monitoring: Not included
+- Backup Duration: 6-8 hours depending on usage
+
+Connectivity:
+- IoT Monitoring: Not included
+- Mobile App: No
+
+Key Features:
+- Affordable entry-level package
+- Reliable backup for essential appliances
+- Easy to install and maintain
+
+What’s in the box:
+- 1x 1.2KVA Inverter
+- 1x 220AH Tall Tubular Battery
+- Battery Rack
+- Electrical Installation Kit
+- User Manual
+`,
     image: miniPlan,
   },
   {
@@ -23,24 +47,49 @@ const plans = [
     price: '₦800,000',
     priceLabel: 'Most Popular',
     features: [
-    '1.2KVA/12v Inverter (1 year warranty)',
-    '220AH/12V Tall Tubular Battery',
-    '3× 250W Solar Panels',
-    'Solar Installation + Monitoring',
-    'And Lot More...',
+      '1.2KVA/12v Inverter (1 year warranty)',
+      '220AH/12V Tall Tubular Battery',
+      '3× 250W Solar Panels',
+      'Solar Installation + Monitoring',
+      'And Lot More...',
     ],
     fullFeatures: [
-        '1.2KVA/12v Inverter (1 year warranty)',
-        '220AH/12V Tall Tubular Battery',
-        'Battery Rack',
-        'Electrical Installation Kit Included',
-        '250 Watt Poly Solar Panels X 3 Pieces.',
-        'Solar Charge Controller',
-        'Solar Panel Cable',
-        'Solar Panel Installation Kit',
-        'Protective Devices',
+      '1.2KVA/12v Inverter (1 year warranty)',
+      '220AH/12V Tall Tubular Battery',
+      'Battery Rack',
+      'Electrical Installation Kit Included',
+      '250 Watt Poly Solar Panels X 3 Pieces.',
+      'Solar Charge Controller',
+      'Solar Panel Cable',
+      'Solar Panel Installation Kit',
+      'Protective Devices',
     ],
-    description: 'A robust upgrade for higher efficiency and real-time monitoring. Great for growing needs.',
+    description: `
+General:
+- Plan Type: Mini Premium
+- Inverter Capacity: 1.2KVA / 12V
+- Battery: 220AH/12V Tall Tubular
+- Solar Panels: 3x 250W Polycrystalline
+- Monitoring: Basic monitoring included
+
+Connectivity:
+- IoT Monitoring: Optional
+- Mobile App: No
+
+Key Features:
+- Moderate capacity for homes needing continuous power
+- Solar panel inclusion for better autonomy
+- Simple remote monitoring
+
+What’s in the box:
+- 1x 1.2KVA Inverter
+- 3x 250W Solar Panels
+- 1x 220AH Tall Tubular Battery
+- Battery Rack
+- Solar Charge Controller
+- Installation Kit
+- User Manual
+`,
     image: miniPlan,
   },
   {
@@ -49,20 +98,44 @@ const plans = [
     price: '₦800,000',
     priceLabel: 'Value Plan',
     features: [
-    '2.5KVA/24V Inverter (1 year warranty)',
-    '220AH/12v Tall Tubular Batteries',
-    'Battery Rack',
-    '2× 250W Solar Panels',
-    'Electrical Installation & Monitoring Kit',
+      '2.5KVA/24V Inverter (1 year warranty)',
+      '220AH/12v Tall Tubular Batteries',
+      'Battery Rack',
+      '2× 250W Solar Panels',
+      'Electrical Installation & Monitoring Kit',
     ],
     fullFeatures: [
-    '2.5KVA/24v Inverter (1 year warranty)',
-    '220AH/12v Tall Tubular Batteries',
-    'Battery Rack',
-    '2 Pieces of 250 Watt Poly Solar Panels.',
-    'Electrical Installation Kit',
+      '2.5KVA/24v Inverter (1 year warranty)',
+      '220AH/12v Tall Tubular Batteries',
+      'Battery Rack',
+      '2 Pieces of 250 Watt Poly Solar Panels.',
+      'Electrical Installation Kit',
     ],
-    description: 'Reliable mid-range solution for stable energy. Ideal for shops or medium households.',
+    description: `
+General:
+- Plan Type: Midi Basic
+- Inverter Capacity: 2.5KVA / 24V
+- Batteries: 2x 220AH/12V Tall Tubular
+- Solar Panels: 2x 250W Polycrystalline
+- Monitoring: Standard
+
+Connectivity:
+- IoT Monitoring: No
+- Mobile App: No
+
+Key Features:
+- Stable energy for shops and medium homes
+- Supports more appliances
+- Mid-range solar backup
+
+What’s in the box:
+- 1x 2.5KVA Inverter
+- 2x 250W Solar Panels
+- 2x 220AH Tall Tubular Batteries
+- Battery Rack
+- Electrical Installation Kit
+- User Manual
+`,
     image: midiPlan,
   },
   {
@@ -71,24 +144,52 @@ const plans = [
     price: '₦1,800,000',
     priceLabel: 'Full Setup',
     features: [
-    '2.5KVA/24V Inverter (2 years warranty)',
-    '2× 220AH/12V Tubular Batteries',
-    '6× 250W Solar Panels',
-    'Smart Monitoring & IoT Integration',
-    'MPPT Solar Charge Controller'
+      '2.5KVA/24V Inverter (2 years warranty)',
+      '2× 220AH/12V Tubular Batteries',
+      '6× 250W Solar Panels',
+      'Smart Monitoring & IoT Integration',
+      'MPPT Solar Charge Controller',
     ],
     fullFeatures: [
-    '2.5KVA/24v Inverter (1 year warranty)',
-    '2 pieces of 220AH/12v Tall Tubular Batteries',
-    'Battery Rack',
-    '6 Pieces of 250 Watt Poly Solar Panels.',
-    'Battery Rack & Monitoring Kit',
-    'MPPT Solar Charge Controller',
-    'Solar Panel Cable',
-    'Solar Panel Installation Kit',
-    'Protective Devices',
+      '2.5KVA/24v Inverter (1 year warranty)',
+      '2 pieces of 220AH/12v Tall Tubular Batteries',
+      'Battery Rack',
+      '6 Pieces of 250 Watt Poly Solar Panels.',
+      'Battery Rack & Monitoring Kit',
+      'MPPT Solar Charge Controller',
+      'Solar Panel Cable',
+      'Solar Panel Installation Kit',
+      'Protective Devices',
     ],
-    description: 'High-capacity energy solution with smart integration. Designed for commercial scale.',
+    description: `
+General:
+- Plan Type: Midi Premium
+- Inverter Capacity: 2.5KVA / 24V
+- Batteries: 2x 220AH/12V Tall Tubular
+- Solar Panels: 6x 250W Polycrystalline
+- Monitoring: Advanced IoT & Mobile Monitoring
+- Warranty: 2 years on Inverter, 18 months on Battery
+
+Connectivity:
+- IoT Monitoring: Yes
+- Mobile App: Available
+
+Key Features:
+- Commercial grade capacity
+- Smart Monitoring & IoT Control
+- MPPT Solar Charge Controller for optimal efficiency
+- Great for large homes, offices
+
+What’s in the box:
+- 1x 2.5KVA Inverter
+- 6x 250W Solar Panels
+- 2x 220AH Tall Tubular Batteries
+- MPPT Solar Charge Controller
+- Battery Rack
+- Monitoring Kit
+- Installation Kit
+- User Manual
+`,
     image: midiPlan,
   },
 ];
