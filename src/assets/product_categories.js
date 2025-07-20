@@ -8,7 +8,7 @@ const productCategories = [
     id: 'inverter',
     slug: 'solar-inverters',
     title: 'Solar Inverters',
-    description: 'Reliable DC-to-AC converters for optimized energy flow.',
+    description: 'Browse our full range of solar inverters. Tap into efficient and smart DC-to-AC energy conversion tailored for your home or business. Enjoy reliable power, advanced features, and seamless integration for every need.',
     image: inverter,
     products: [
       {
@@ -92,7 +92,7 @@ const productCategories = [
     id: 'panels',
     slug: 'solar-panels',
     title: 'Solar Panels',
-    description: 'High-performance panels that harness maximum solar output.',
+    description: 'Browse our full range of solar panels. Harness maximum solar output with high-performance solutions designed for durability and efficiency. Power your home or business with clean, renewable energy.',
     image: panel,
     products: [
       {
@@ -176,7 +176,7 @@ const productCategories = [
     id: 'batteries',
     slug: 'battery-storage',
     title: 'Battery Storage',
-    description: 'Secure solar energy storage for backup and resilience.',
+    description: 'Browse our full range of battery storage options. Secure your solar energy for backup and resilience with advanced batteries built for long life and reliable performance. Perfect for homes and businesses.',
     image: battery,
     products: [
       {
@@ -260,7 +260,7 @@ const productCategories = [
     id: 'monitoring',
     slug: 'monitoring-systems',
     title: 'Monitoring Systems',
-    description: 'Smart monitoring tools for real-time energy insights.',
+    description: 'Browse our full range of smart monitoring systems. Get real-time energy insights and control with innovative tools designed to optimize your solar setup for homes and businesses.',
     image: controller,
     products: [
       {
