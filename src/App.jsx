@@ -7,6 +7,7 @@ import PlanDetails from './components/Plan Details.jsx';
 import Footer from './pages/Footer.jsx';
 import { WishlistProvider } from './components/WishlistContext.jsx';
 import WishlistPage from './components/WishlistPage.jsx';
+import AllProductsPage from './components/All Product Product.jsx';
 import ProductCategoryPage from './components/ProductCategoryPage.jsx';
 import ProductDetailsPage from './components/productDetail.jsx'; // ✅ new import
 
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/plans" element={<PlansPage />} />
             <Route path="/plans/:slug" element={<PlanDetails />} />
             <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/products" element={<AllProductsPage />} />
             <Route path="/products/:categoryId" element={<ProductCategoryPage />} />
             <Route path="/products/:categoryId/:productId" element={<ProductDetailsPage />} /> {/* ✅ new route */}
             <Route path="*" element={<p className="text-center mt-10">Page not found 😏</p>} />

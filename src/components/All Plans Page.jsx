@@ -16,8 +16,8 @@ const cardVariant = {
 };
 
 const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaText, custom, onToast }) => {
-  const {wishlist, toggleWishlist} = useWishlist();
-  const isWishlisted = wishlist.includes(slug);
+  const { planWishlist, togglePlanWishlist } = useWishlist();
+  const isWishlisted = planWishlist.includes(slug);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -71,8 +71,8 @@ const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaTe
           <div className="flex items-center gap-3">
             <motion.span
               whileTap={{ scale: 0.8 }}
-              onClick={()=>{
-                toggleWishlist(slug);
+              onClick={() => {
+                togglePlanWishlist(slug);
                 onToast(`${isWishlisted ? 'Removed from Wishlist' : 'Plan Successfully Wishlisted'}`);
               }}
               className="cursor-pointer"

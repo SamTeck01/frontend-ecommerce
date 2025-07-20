@@ -13,10 +13,10 @@ const PlanDetails = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-  const {wishlist, toggleWishlist} = useWishlist();
+  const { planWishlist, togglePlanWishlist } = useWishlist();
   const [showToast, setShowToast] = useState(false);
   const handleWishlistToggle = () => {
-    toggleWishlist(plan.slug);
+    togglePlanWishlist(plan.slug);
     setShowToast(true);
 
     setTimeout(() => {
@@ -27,7 +27,7 @@ const PlanDetails = () => {
   const { slug } = useParams();
   const plan = plans.find((item) => item.slug === slug);
   
-  const isWishlisted = wishlist.includes(plan.slug);
+  const isWishlisted = planWishlist.includes(plan.slug);
   // Initialize all indices as open by default, safely handle missing plan
   const [openSections, setOpenSections] = useState(
     plan && plan.description ? plan.description.map(() => true) : []
@@ -82,12 +82,12 @@ const PlanDetails = () => {
         </AnimatePresence>
 
         {/* Breadcrumbs */}
-        <nav className="text-sm text-gray-600 flex items-center mb-3 ms-2 space-x-2">
+        <nav className="text-sm text-ash flex items-center mb-3 ms-2 space-x-2">
           <Link to="/" className="hover:text-gold2">Home</Link>
           <ChevronRight size={16} />
           <Link to="/plans" className="hover:text-gold2">Plans</Link>
           <ChevronRight size={16} />
-          <span className="text-gray-800 font-medium">{plan.title}</span>
+          <span className="text-black font-medium">{plan.title}</span>
         </nav>
 
         <div className="md:bg-white bg-transparent rounded-lg grid grid-cols-1 gap-2 md:gap-2 md:w-[75%] w-full">

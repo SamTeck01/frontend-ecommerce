@@ -4,22 +4,24 @@ import PropTypes from 'prop-types';
 const CardComponent = ({ title, description, image, to, productCount, startingPrice="₦150,000" }) => {
   return (
     <Link to={to} className="block">
-      <section className='bg-grey-glass flex flex-col gap-3 p-[10px] rounded-[15px]'>
+      <section className='bg-white flex flex-col gap-3 p-[10px] rounded-[15px] w-[270px] md:w-[230px]'>
         {/*image */}
         <div>
           <img src={image} className='rounded-[15px] w-full h-40 object-cover' alt={title} />
         </div>
 
         {/*little info */}
-        <div className='rounded-[10px] bg-white py-4 px-2 '>
+        <div className='rounded-[10px] border py-4 px-2 '>
           {/*name*/}
           <div>
             <p className='text-base font-semibold text-black-400' >{title}</p>
-            <p className='text-sm'>{description}</p>
+            <p className="text-sm w-full overflow-hidden text-ellipsis whitespace-nowrap">
+              {description}
+            </p>
           </div>
         </div>
 
-        <div className='rounded-[10px] bg-white py-4 px-2' >
+        <div className='rounded-[10px] border py-4 px-2' >
           <div className='flex items-center justify-between -mb-1'>
             <span className='text-sm text-gray-30'>Starting Price</span>
             <span className='text-lg font-semibold text-gold2'> {startingPrice}</span>

@@ -50,7 +50,7 @@ const NewHeader = () => {
               <HashLink smooth to="/#home" className={linkClass('#home')} onClick={() => handleClick('#home')}>Home</HashLink>
               <HashLink smooth to="/#about" className={linkClass('#about')} onClick={() => handleClick('#about')}>About</HashLink>
               <HashLink smooth to="/plans" className={linkClass('#plans')} onClick={() => handleClick('#plans')}>Plans</HashLink>
-              <HashLink smooth to="/#products" className={linkClass('#products')} onClick={() => handleClick('#products')}>Products</HashLink>
+              <HashLink smooth to="/products" className={linkClass('#products')} onClick={() => handleClick('#products')}>Products</HashLink>
               <HashLink smooth to="/#services" className={linkClass('#services')} onClick={() => handleClick('#services')}>Services</HashLink>
               <HashLink smooth to="/#contact" className={linkClass('#contact')} onClick={() => handleClick('#contact')}>Contact</HashLink>
             </nav>
@@ -104,7 +104,7 @@ const NewHeader = () => {
                 <HashLink smooth to="/plans" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
                   <span className="inline-flex items-center gap-2"><Package size={18} />Plans</span>
                 </HashLink>
-                <HashLink smooth to="/#products" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                <HashLink smooth to="/products" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
                   <span className="inline-flex items-center gap-2"><Box size={18} />Products</span>
                 </HashLink>
                 <HashLink smooth to="/#services" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">

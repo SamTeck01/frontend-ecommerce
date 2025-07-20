@@ -1,15 +1,19 @@
-import inverter from '../assets/inverter.jpg';
+import inverter from '../assets/inverter.png';
 import controller from '../assets/controller.jpg';
-import battery from '../assets/battery.jpg';
-import panel from '../assets/panel.jpg';
+import battery from '../assets/tubular.png';
+import panel from '../assets/a lot of panels.png';
+import BatteryCategory from '../assets/Battery Category.jpg';
+import PanelCategory from '../assets/Solar Panel Category.jpg';
+import OtherCategory from '../assets/Other Category.jpg';
+import InverterCategory from '../assets/Inverter Category.jpg';
 
 const productCategories = [
   {
     id: 'inverter',
     slug: 'solar-inverters',
     title: 'Solar Inverters',
-    description: 'Browse our full range of solar inverters. Tap into efficient and smart DC-to-AC energy conversion tailored for your home or business. Enjoy reliable power, advanced features, and seamless integration for every need.',
-    image: inverter,
+    description: 'Discover advanced solar inverters designed for seamless energy conversion and smart load management. Perfect for homes and businesses seeking reliable, efficient power solutions with modern features.',
+    image: InverterCategory,
     products: [
       {
         id: 'inv-01',
@@ -18,6 +22,14 @@ const productCategories = [
         image: inverter,
         specs: 'High efficiency, smart load balancing',
         description: 'A reliable 5kW inverter designed for seamless DC-to-AC conversion with intelligent power regulation and protective features.',
+        features: [
+          '5kW Capacity',
+          'Mobile Monitoring',
+          'LCD Diagnostics',
+          'Overload Protection',
+          'Fan Cooling',
+          'Compact Build'
+        ],
         sections: [
         {
             title: 'General',
@@ -55,6 +67,14 @@ const productCategories = [
         image: inverter,
         specs: 'Battery-ready with mobile monitoring',
         description: 'A versatile hybrid inverter supporting battery integration and mobile monitoring for efficient energy management.',
+        features: [
+          '3.5kW Capacity',
+          'Hybrid Wave Output',
+          'Battery Integration',
+          'Mobile App Monitoring',
+          'LCD Display',
+          'Overload Protection'
+        ],
         sections: [
         {
             title: 'General',
@@ -92,8 +112,8 @@ const productCategories = [
     id: 'panels',
     slug: 'solar-panels',
     title: 'Solar Panels',
-    description: 'Browse our full range of solar panels. Harness maximum solar output with high-performance solutions designed for durability and efficiency. Power your home or business with clean, renewable energy.',
-    image: panel,
+    description: 'Explore our selection of high-performance solar panels engineered for maximum energy capture and durability. Ideal for those who want to harness clean, renewable power and reduce electricity costs.',
+    image: PanelCategory,
     products: [
       {
         id: 'pan-01',
@@ -102,6 +122,14 @@ const productCategories = [
         image: panel,
         specs: '25-year warranty, high efficiency',
         description: 'High-efficiency monocrystalline solar panel with long-term warranty and robust build.',
+        features: [
+          '400W Output',
+          'Monocrystalline Cells',
+          'High Efficiency',
+          '25-Year Warranty',
+          'Weather Resistant',
+          'Durable Frame'
+        ],
         sections: [
         {
             title: 'General',
@@ -139,6 +167,14 @@ const productCategories = [
         image: panel,
         specs: 'Durable and affordable',
         description: 'Affordable polycrystalline solar panel designed for reliable energy generation.',
+        features: [
+          '350W Output',
+          'Polycrystalline Cells',
+          'Affordable Pricing',
+          'Weather Resistant',
+          'Durable Frame',
+          'Easy Installation'
+        ],
         sections: [
         {
             title: 'General',
@@ -176,8 +212,8 @@ const productCategories = [
     id: 'batteries',
     slug: 'battery-storage',
     title: 'Battery Storage',
-    description: 'Browse our full range of battery storage options. Secure your solar energy for backup and resilience with advanced batteries built for long life and reliable performance. Perfect for homes and businesses.',
-    image: battery,
+    description: 'Choose from our range of robust battery storage solutions for dependable backup and energy resilience. Designed for long life and low maintenance, these batteries keep your solar system running smoothly.',
+    image: BatteryCategory,
     products: [
       {
         id: 'bat-01',
@@ -186,6 +222,14 @@ const productCategories = [
         image: battery,
         specs: 'Long life, low maintenance',
         description: 'Tubular battery with high capacity and low maintenance for reliable backup.',
+        features: [
+          '200Ah Capacity',
+          'Tubular Design',
+          'Long Life',
+          'Low Maintenance',
+          'Deep Cycle',
+          'Safe Operation'
+        ],
         sections: [
         {
             title: 'General',
@@ -223,6 +267,14 @@ const productCategories = [
         image: battery,
         specs: 'Compact and high performance',
         description: 'Compact lithium-ion battery for high performance and efficient energy storage.',
+        features: [
+          '150Ah Capacity',
+          'Lithium-Ion Technology',
+          'Compact Size',
+          'High Energy Density',
+          'Fast Charging',
+          'Extended Life Span'
+        ],
         sections: [
         {
             title: 'General',
@@ -260,8 +312,8 @@ const productCategories = [
     id: 'monitoring',
     slug: 'monitoring-systems',
     title: 'Monitoring Systems',
-    description: 'Browse our full range of smart monitoring systems. Get real-time energy insights and control with innovative tools designed to optimize your solar setup for homes and businesses.',
-    image: controller,
+    description: 'Upgrade your solar setup with smart monitoring systems that deliver real-time insights and control. Track your energy usage, optimize performance, and enjoy peace of mind with innovative technology.',
+    image: OtherCategory,
     products: [
       {
         id: 'mon-01',
@@ -270,6 +322,14 @@ const productCategories = [
         image: controller,
         specs: 'App support, power alerts',
         description: 'IoT-enabled smart controller for real-time monitoring and power alerts.',
+        features: [
+          'IoT Connectivity',
+          'App Support',
+          'Power Alerts',
+          'Real-Time Monitoring',
+          'Easy Installation',
+          'User Friendly'
+        ],
         sections: [
         {
             title: 'General',
@@ -307,6 +367,14 @@ const productCategories = [
         image: controller,
         specs: 'Live data with analytics',
         description: 'Energy monitoring kit providing live data and analytics for solar systems.',
+        features: [
+          'Live Data Feed',
+          'Analytics Dashboard',
+          'Power Alerts',
+          'Wired/Wireless Connectivity',
+          'Easy Installation',
+          'Real-Time Insights'
+        ],
         sections: [
         {
             title: 'General',

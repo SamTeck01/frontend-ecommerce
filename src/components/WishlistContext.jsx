@@ -4,27 +4,39 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
-  const [wishlist, setWishlist] = useState([]);
+  const [productWishlist, setProductWishlist] = useState([]);
+  const [planWishlist, setPlanWishlist] = useState([]);
 
-  // Load wishlist from localStorage on mount
+  // Load wishlists from localStorage on mount
   useEffect(() => {
-    const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    setWishlist(storedWishlist);
+    const storedProductWishlist = JSON.parse(localStorage.getItem('productWishlist')) || [];
+    const storedPlanWishlist = JSON.parse(localStorage.getItem('planWishlist')) || [];
+    setProductWishlist(storedProductWishlist);
+    setPlanWishlist(storedPlanWishlist);
   }, []);
 
-  const toggleWishlist = (slug) => {
-    setWishlist((prevWishlist) => {
+  const toggleProductWishlist = (productId) => {
+    setProductWishlist((prevWishlist) => {
+      const updatedWishlist = prevWishlist.includes(productId)
+        ? prevWishlist.filter((item) => item !== productId)
+        : [...prevWishlist, productId];
+      localStorage.setItem('productWishlist', JSON.stringify(updatedWishlist));
+      return updatedWishlist;
+    });
+  };
+
+  const togglePlanWishlist = (slug) => {
+    setPlanWishlist((prevWishlist) => {
       const updatedWishlist = prevWishlist.includes(slug)
         ? prevWishlist.filter((item) => item !== slug)
         : [...prevWishlist, slug];
-
-      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+      localStorage.setItem('planWishlist', JSON.stringify(updatedWishlist));
       return updatedWishlist;
     });
   };
 
   return (
-    <WishlistContext.Provider value={{ wishlist, toggleWishlist }}>
+    <WishlistContext.Provider value={{ productWishlist, planWishlist, toggleProductWishlist, togglePlanWishlist }}>
       {children}
     </WishlistContext.Provider>
   );
