@@ -13,6 +13,7 @@ const cardVariant = {
   }),
 };
 
+// eslint-disable-next-line react/prop-types
 export const ProductCard = ({ image, title, price, categoryId, productId, custom, onToast }) => {
   const { productWishlist, toggleProductWishlist } = useWishlist();
   const isWishlisted = productWishlist.includes(productId);

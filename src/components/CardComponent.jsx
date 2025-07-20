@@ -29,7 +29,7 @@ const CardComponent = ({ title, description, image, to, productCount, startingPr
           
           <hr className="my-3 border-t border-gray-300" />
 
-          <div className='flex flex-row justify-between' >
+          <div className='flex flex-row justify-between text-center' >
             <div className='flex items-center gap-1 text-sm text-gray-500'>
               <i className='bx bx-box text-[16px] text-gold2'></i>
               <span>{productCount} Products</span>
