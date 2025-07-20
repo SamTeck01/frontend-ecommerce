@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CardComponent = ({ title, description, image, to, productCount }) => {
+const CardComponent = ({ title, description, image, to, productCount, startingPrice="₦150,000" }) => {
   return (
     <Link to={to} className="block">
       <section className='bg-grey-glass flex flex-col gap-3 p-[10px] rounded-[15px]'>
         {/*image */}
         <div>
-          <img src={image} className='rounded-[15px] w-[100vw] object-cover' />
+          <img src={image} className='rounded-[15px] w-full h-40 object-cover' alt={title} />
         </div>
 
         {/*little info */}
@@ -21,8 +21,8 @@ const CardComponent = ({ title, description, image, to, productCount }) => {
 
         <div className='rounded-[10px] bg-white py-4 px-2' >
           <div className='flex items-center justify-between -mb-1'>
-            <span className='text-sm text-gray-30'>Starting from</span>
-            <span className='text-lg font-semibold text-gold2'>R 1,500.00</span>
+            <span className='text-sm text-gray-30'>Starting Price</span>
+            <span className='text-lg font-semibold text-gold2'> {startingPrice}</span>
           </div>
           
           <hr className="my-3 border-t border-gray-300" />
@@ -35,7 +35,7 @@ const CardComponent = ({ title, description, image, to, productCount }) => {
 
             {/*button */}
             <button className='py-1 px-3 text-gold2 font-medium flex items-center gap-1 text-sm border-[1.5px] border-gold2 rounded-2xl ' >
-              Explore <i className='bx bx-right-arrow-alt text-lg'></i>
+              See Products <i className='bx bx-right-arrow-alt text-lg'></i>
             </button>
           </div>
         </div>
@@ -49,6 +49,7 @@ CardComponent.propTypes = {
   image: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
   productCount: PropTypes.number.isRequired,
+  startingPrice: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default CardComponent;

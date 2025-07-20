@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
 import plans from '../assets/all_plans';
 import { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { useWishlist } from './WishlistContext';
+import { Link } from 'react-router-dom';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -66,7 +66,10 @@ const PlanCard2 = ({ image, title, price, slug, features = [], priceLabel, ctaTe
 
         <div className="flex items-center justify-between mt-5">
           <Link
-            to={`/plans/${slug}`} className="text-sm text-white bg-gold2 px-4 py-2 rounded-full hover:bg-black transition">
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            to={`/plans/${slug}`}
+            className="text-sm text-white bg-gold2 px-4 py-2 rounded-full hover:bg-black transition"
+          >
             {ctaText}
           </Link>
 
@@ -169,9 +172,9 @@ const PlansSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/plans" className="text-ash underline font-medium text-lg hover:text-black transition-all">
+          <HashLink smooth to="/plans" className="text-ash underline font-medium text-lg hover:text-black transition-all">
             View All Plans →
-          </Link>
+          </HashLink>
         </div>
       </div>
     </section>

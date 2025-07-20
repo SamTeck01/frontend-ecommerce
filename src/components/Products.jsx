@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import productImage1 from '../assets/inverter.jpg';
-import productImage2 from '../assets/controller.jpg';
 import CardComponent from './CardComponent.jsx';
 import IconButton from '@mui/material/IconButton'
+import productCategories from "../assets/product_categories.js";
 
 export default function Products() {
   return (
@@ -36,35 +35,18 @@ export default function Products() {
           viewport={{ once: false }}
         >
           <div className="mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-            <CardComponent
-              title='Solar Inverter'
-              description='Efficient DC to AC converters.'
-              image={productImage1}
-              to={'/'}
-              productCount={5}
-            />
-            <CardComponent
-              title='Solar Panels'
-              description='High-efficiency panels for reliable solar power.'
-              image={productImage2}
-              to={'/'}
-              productCount={5}
-            />
-            <CardComponent
-              title='Battery Storage'
-              description='Store solar energy for later use.'
-              image={productImage1}
-              to={'/'}
-              productCount={5}
-            />        
-            <CardComponent
-              title='Monitoring Systems'
-              description='Secure structures for panel installation.'
-              image={productImage2}
-              to={'/'}
-              productCount={5}
-            />
+            {productCategories.map((category) => (
+              <CardComponent
+                key={category.id}
+                title={category.title}
+                description={category.description}
+                image={category.image}
+                to={`/products/${category.id}`}
+                productCount={category.products.length}
+              />
+            ))}
           </div>
+
         </motion.div>
       </div>
     </motion.section>

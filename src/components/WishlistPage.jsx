@@ -1,6 +1,7 @@
 import { useWishlist } from "./WishlistContext";
 import plans from "../assets/all_plans";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 export default function WishlistPage() {
   const { wishlist, toggleWishlist } = useWishlist();
@@ -43,13 +44,12 @@ export default function WishlistPage() {
                 >
                   Remove
                 </button>
-                <HashLink
-                  smooth
+                <Link 
                   to={`/plans/${plan.slug}`}
                   className="bg-gold2 text-white text-sm px-4 py-1.5 rounded hover:bg-gold2/80 transition shadow-md h-fit"
                 >
                   View Plan
-                </HashLink>
+                </Link>
               </div>
             </div>
           ))}

@@ -5,12 +5,14 @@ import SendWhatsAppMessage from './SendWhatsappMessage';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useWishlist } from './WishlistContext';
 
 
 const PlanDetails = () => {
-  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   const {wishlist, toggleWishlist} = useWishlist();
   const [showToast, setShowToast] = useState(false);
   const handleWishlistToggle = () => {
@@ -48,7 +50,7 @@ const PlanDetails = () => {
     if (navigator.share) {
       navigator.share({
         title: plan.title,
-        text: `Check out this energy plan: ${plan.title} for ${plan.price}.`,
+        text: `Discover the '${plan.title}' solar plan — just ${plan.price} from Bee Energy Hive!`,
         url: window.location.href
       })
       .then(() => console.log('Shared successfully'))
