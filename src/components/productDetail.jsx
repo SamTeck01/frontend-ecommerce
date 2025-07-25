@@ -7,36 +7,39 @@ import { HashLink } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWishlist } from './WishlistContext';
+import { ProductCard } from './ProductCard';
 
 export default function ProductPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
   const { productWishlist, toggleProductWishlist } = useWishlist();
+  const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
-  const handleWishlistToggle = () => {
-    toggleProductWishlist(product.id);
+
+  const triggerToast = (message) => {
+    setToastMessage(message);
     setShowToast(true);
-    
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000); // 3 seconds
+    setTimeout(() => setShowToast(false), 3000);
   };
+
   const { categoryId, productId } = useParams();
   
   const category = productCategories.find(c => c.id === categoryId);
-
   if (!category) return <h2 className="text-center py-24">Category not found</h2>;
   
   const product = category.products.find(p => p.id === productId);
   if (!product) return <h2 className="text-center py-24">Product not found</h2>;
   
   const isWishlisted = productWishlist.includes(product.id);
-  // Initialize all indices as open by default, safely handle missing plan
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [openSections, setOpenSections] = useState(
     product && product.sections ? product.sections.map(() => true) : []
   );
+
+  const similarProduct = category.products.filter(p => p.id !== productId).slice(0, 7); // Show top 3
 
   const toggleSection = (index) => {
     setOpenSections((prev) =>
@@ -70,7 +73,7 @@ export default function ProductPage() {
             transition={{ duration: 0.5 }}
             className="fixed top-16 left-auto bg-green-600 text-white px-6 py-3 rounded shadow-lg z-50 w-[94.5%] md:w-[80%] flex items-center justify-between"
           >
-            {isWishlisted ? 'Plan Successfully Wishlisted' : 'Removed from Wishlist'}
+            {toastMessage}
             <HashLink smooth to="/wishlist" className="text-white underline ml-2">
               View Wishlist
             </HashLink>
@@ -131,7 +134,10 @@ export default function ProductPage() {
                 <div className="flex items-center gap-3">
                   <motion.span
                     whileTap={{ scale: 0.8 }}
-                    onClick={handleWishlistToggle}
+                    onClick={()=>{
+                      toggleProductWishlist(productId)
+                      triggerToast(`${isWishlisted ? 'Removed from Wishlist' : 'Plan Successfully Wishlisted'}`);
+                    }}
                     className="cursor-pointer"
                   >
                     {isWishlisted ? (
@@ -199,6 +205,31 @@ export default function ProductPage() {
                 </AnimatePresence>
               </div>
             ))}
+          </div>
+
+          {/* Similar Plans Section */}
+          <div className=" bg-white md:bg-transparent py-3 px-2 rounded-lg md:shadow-none shadow-md">
+            <h2 className="text-lg font-medium text-black ps-1 mb-2">Customers Also Viewed</h2>
+            <div className='overflow-x-auto whitespace-nowrap scroll-smooth snap-x snap-mandatory pb-2' >
+              <div className="flex gap-3">
+                {similarProduct.map((similar, idx) => (
+                  <HashLink smooth to={`/plans/${similar.id}`}
+                    key={similar.id}
+                  >
+                    <ProductCard
+                      categoryId={categoryId}
+                      image={similar.image}
+                      title={similar.name}
+                      productId={similar.id}
+                      custom={idx}
+                      price={similar.price}
+                      key={similar.id}
+                      onToast={triggerToast}
+                    />
+                  </HashLink>
+                ))}
+              </div>
+            </div>
           </div>
 
         </div>
