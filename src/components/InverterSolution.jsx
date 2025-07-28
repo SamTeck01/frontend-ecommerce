@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 export default function InverterSolutions() {
   return (
-    <section className="text-black p-8 flex items-center justify-center">
-      <div className="max-w-4xl">
+    <section className="px-4 pt-24 flexCenter">
+      <div className="container mx-auto">
         <h1 className="text-4xl font-bold text-center mb-6">
           Powering Nigeria with Reliable Inverter Solutions ⚡
         </h1>
