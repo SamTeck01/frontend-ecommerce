@@ -13,6 +13,7 @@ import ProductDetailsPage from './components/productDetail.jsx'; // ✅ new impo
 import InverterSolutions from './components/InverterSolution.jsx';
 import InstallationServices from './components/InstallationServices.jsx';
 import IoTEnergySolutions from './components/IotSolution.jsx';
+import GalleryPro from './components/Gallery.jsx'; // Import the Gallery component
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/inverter-solutions" element={<InverterSolutions />} />
             <Route path="/installation-services" element={<InstallationServices />} />
             <Route path="/iot-energy-solutions" element={<IoTEnergySolutions />} />
+            <Route path="/gallery" element={<GalleryPro />} /> {/* Add the Gallery route */}
             <Route path="*" element={<p className="text-center mt-10">Page not found 😏</p>} />
           </Routes>
           <Footer />
