@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import SendWhatsAppMessage from "./SendWhatsappMessage";
 
 export default function InverterSolutions() {
   return (
@@ -31,12 +31,12 @@ export default function InverterSolutions() {
         </article>
 
         <div className="mt-10 flex justify-center">
-          <NavLink
-            to="/contact"
-            className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-black hover:text-white font-medium transition"
+          <button 
+            onClick={() => SendWhatsAppMessage(`Hello`)} 
+            className="bg-gold2 hover:bg-gold2/80 text-white font-medium px-6 py-3 rounded-md flex justify-between items-center gap-2 mt-3 transition"
           >
             Talk to an Expert
-          </NavLink>
+          </button>
         </div>
       </div>
     </section>

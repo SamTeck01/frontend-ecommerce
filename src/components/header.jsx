@@ -5,7 +5,7 @@ import logo from '../assets/IMG-20250526-WA0150.png';
 import { useState, useEffect } from 'react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
 import { Menu, MessageCircleDashed, X } from "lucide-react";
-import { Home, Info, Package, Box, Wrench, Phone, Heart } from "lucide-react";
+import { Home, Package, Box, Wrench, Phone, Heart } from "lucide-react";
 
 const NewHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,11 +48,11 @@ const NewHeader = () => {
 
             <nav className="hidden md:flex space-x-8">
               <HashLink smooth to="/#home" className={linkClass('#home')} onClick={() => handleClick('#home')}>Home</HashLink>
-              <HashLink smooth to="/#about" className={linkClass('#about')} onClick={() => handleClick('#about')}>About</HashLink>
               <HashLink smooth to="/plans" className={linkClass('#plans')} onClick={() => handleClick('#plans')}>Plans</HashLink>
               <HashLink smooth to="/products" className={linkClass('#products')} onClick={() => handleClick('#products')}>Products</HashLink>
               <HashLink smooth to="/#services" className={linkClass('#services')} onClick={() => handleClick('#services')}>Services</HashLink>
               <HashLink smooth to="/#contact" className={linkClass('#contact')} onClick={() => handleClick('#contact')}>Contact</HashLink>
+              <HashLink smooth to='/gallery' className={linkClass('#gallery')} onClick={() => handleClick('#gallery')}>Gallery</HashLink>
             </nav>
 
             <div className="hidden md:flexCenter gap-2">
@@ -98,9 +98,6 @@ const NewHeader = () => {
                 <HashLink smooth to="/#home" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
                   <span className="inline-flex items-center gap-2"><Home size={18} />Home</span>
                 </HashLink>
-                <HashLink smooth to="/#about" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
-                  <span className="inline-flex items-center gap-2"><Info size={18} />About</span>
-                </HashLink>
                 <HashLink smooth to="/plans" onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
                   <span className="inline-flex items-center gap-2"><Package size={18} />Plans</span>
                 </HashLink>
@@ -115,6 +112,9 @@ const NewHeader = () => {
                 </HashLink>
                 <HashLink smooth to="/wishlist" className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
                   <span className="inline-flex items-center gap-2"><Heart size={18} />Wishlist</span>
+                </HashLink>
+                <HashLink smooth to='/gallery' onClick={() => setIsOpen(false)} className="text-primary-900 hover:text-secondary-600 font-medium transition duration-300">
+                  <span className="inline-flex items-center gap-2"><Box size={18} />Gallery</span>
                 </HashLink>
                 <button
                   onClick={() => SendWhatsAppMessage('Hi! I’d like to learn more about your services and discuss how they might fit my business needs. Can we chat about the features and pricing? Thanks!')}

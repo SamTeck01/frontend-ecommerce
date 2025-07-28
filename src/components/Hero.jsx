@@ -123,14 +123,24 @@ export default function Hero() {
                       </NavLink>
 
                     </motion.div>
+                      <div className="mt-6 text-center">
+                        <p className="text-white text-lg">Want to see our work in action?</p>
+                        <a 
+                          href="/gallery" 
+                          className="inline-block mt-2 text-gold2 hover:underline font-medium text-lg"
+                        >
+                          Browse Our Gallery →
+                        </a>
+                      </div>
                   </div>
                 </div>
               </SwiperSlide>
             );
           })}
+
         </Swiper>
       </div>
-
+      
       {/* 🔘 Custom Pagination Container */}
       <div className="swiper-pagination absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-3" />
     </section>
