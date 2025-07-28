@@ -9,40 +9,56 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import iotBanner from '../assets/iot banner.jpg';
+import installationBanner from '../assets/WhatsApp Image 2025-05-31 at 20.59.10_f6ce1b15.jpg';
+import buildingInverter from '../assets/WhatsApp Image 2025-06-11 at 18.57.05_75f82c29.jpg';
+
+// ⬇️ Slide data with long descriptions and links
 const slides = [
   {
     title: 'We Build Powerful Inverters ⚡',
-    description: 'High-performance inverter systems built and assembled for businesses and homes.',
-    bgImage: '/images/inverter.jpg',
+    description:
+      'Reliable, high-performance inverter systems designed for homes and businesses.',
+    bgImage: buildingInverter,
+    link: '/inverter-solutions',
   },
   {
     title: 'Expert Installation Services 🔧',
-    description: 'Seamless installations of solar panels, energy systems, and inverter setups.',
-    bgImage: '/images/installation.jpg',
+    description:
+      'Professional setup of solar panels, batteries, and energy systems.',
+    bgImage: installationBanner,
+    link: '/installation-services',
   },
   {
     title: 'Smart IoT Energy Solutions 📡',
-    description: 'Intelligent monitoring and control powered by IoT-enabled devices.',
-    bgImage: '/images/iot.jpg',
+    description:
+      'Monitor and control your power intelligently with smart IoT tech.',
+    bgImage: iotBanner,
+    link: '/iot-energy-solutions',
   },
 ];
+
+
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="w-full h-[100vh] relative bg-black text-white overflow-hidden">
-      {/* 🖼️ Background Image */}
+      {/* 🖼️ Dynamic Background Image */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000"
+        className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 z-0"
         style={{ backgroundImage: `url(${slides[activeIndex].bgImage})` }}
       />
+
+      {/* 🧊 Full Section Overlay */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-[5]" />
 
       {/* 🧭 Slide Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <Swiper
           modules={[Navigation, Autoplay, Pagination]}
-          onSlideChange={({ activeIndex }) => setActiveIndex(activeIndex)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           autoplay={{ delay: 6000 }}
           loop
           pagination={{
@@ -59,7 +75,7 @@ export default function Hero() {
             return (
               <SwiperSlide key={index}>
                 <div ref={ref} className="w-full h-full flex items-center justify-center px-6">
-                  <div className="bg-black/60 backdrop-blur-md p-10 rounded-xl text-center max-w-3xl">
+                  <div className="p-10 text-center max-w-3xl">
                     <motion.span
                       initial={{ opacity: 0 }}
                       animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -93,12 +109,19 @@ export default function Hero() {
                       transition={{ duration: 0.5, delay: 0.6 }}
                       className="flex flex-wrap justify-center gap-4"
                     >
-                      <NavLink to="/" className="bg-white text-black px-6 py-3 rounded hover:bg-black hover:text-white font-medium transition">
-                        Get Started
+                      <NavLink
+                        to={slide.link}
+                        className="bg-white text-black px-6 py-3 rounded hover:bg-black hover:text-white font-medium transition"
+                      >
+                        Learn More
                       </NavLink>
-                      <NavLink to="/services" className="border border-white text-white px-6 py-3 rounded hover:bg-white hover:text-black font-medium transition">
-                        Explore Services
+                      <NavLink
+                        to="/#contact"
+                        className="bg-gold2 text-white px-6 py-3 rounded hover:bg-orange-600 font-medium transition"
+                      >
+                        Contact Us
                       </NavLink>
+
                     </motion.div>
                   </div>
                 </div>
