@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import CardComponent from './CardComponent.jsx';
 import IconButton from '@mui/material/IconButton'
-import productCategories from "../assets/product_categories.js";
+//import productCategories from "../assets/product_categories.js";
+import { useContext } from "react";
+import { ProductsContext } from "./ProductsContext.jsx"; // Import ProductsContext
 
 export default function Products() {
+  const { products } = useContext(ProductsContext); // Access products from context
+
   return (
     <motion.section
       id='products'
@@ -35,16 +39,18 @@ export default function Products() {
           viewport={{ once: false }}
         >
           <div className="mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-            {productCategories.map((category) => (
+            {products.map((category) => {
+              const parsedProducts = JSON.parse(category.products || '[]'); // Parse products if they are stored as a JSON string
+              return(
               <CardComponent
                 key={category.id}
                 title={category.title}
                 description={category.description}
                 image={category.image}
-                to={`/products/${category.id}`}
-                productCount={category.products.length}
+                to={`/products/${category.slug}`}
+                productCount={parsedProducts.length}
               />
-            ))}
+            )})}
           </div>
 
         </motion.div>
