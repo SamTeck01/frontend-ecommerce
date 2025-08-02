@@ -14,11 +14,12 @@ import InverterSolutions from './components/InverterSolution.jsx';
 import InstallationServices from './components/InstallationServices.jsx';
 import IoTEnergySolutions from './components/IotSolution.jsx';
 import GalleryPro from './components/Gallery.jsx'; // Import the Gallery component
+import { PlansProvider } from './components/PlansContext.jsx'; // Import PlansContext
 
 export default function App() {
   return (
     <main className="text-tertiary">
-      <WishlistProvider>
+      <WishlistProvider><PlansProvider>
         <BrowserRouter>
           <ScrollToTop />
           <Header />
@@ -38,7 +39,7 @@ export default function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
-      </WishlistProvider>
+      </PlansProvider></WishlistProvider>
     </main>
   );
 }

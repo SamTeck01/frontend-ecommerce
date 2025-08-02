@@ -1,5 +1,3 @@
-import miniPlan from '../assets/bee mini plan.jpg';
-import midiPlan from '../assets/bee midi plan.jpg';
 
 const plans = [
   {
@@ -52,7 +50,7 @@ const plans = [
         ]
       }
     ],
-    image: miniPlan,
+    image: 'https://www.dropbox.com/scl/fi/7milrx4v9cz6ompqoi9t9/bee-mini-plan.jpg?rlkey=0mpnzzp72xpbh4viwk51kh3pd&dl=0',
   },
   {
     title: 'Mini Premium',
@@ -117,7 +115,7 @@ const plans = [
         ]
       }
     ],
-    image: miniPlan,
+    image: 'https://www.dropbox.com/scl/fi/7milrx4v9cz6ompqoi9t9/bee-mini-plan.jpg?rlkey=0mpnzzp72xpbh4viwk51kh3pd&dl=0',
   },
   {
     title: 'Midi Basic',
@@ -176,7 +174,7 @@ const plans = [
         ]
       }
     ],
-    image: midiPlan,
+    image: 'https://www.dropbox.com/scl/fi/ofyvogauggcvnqa4fx5li/bee-mini-plan.jpg?rlkey=837du19guunsvzxp8xavll1px&st=lt12tahg&dl=0',
   },
   {
     title: 'Midi Premium',
@@ -243,7 +241,7 @@ const plans = [
         ]
       }
     ],
-    image: midiPlan,
+    image: 'https://www.dropbox.com/scl/fi/ofyvogauggcvnqa4fx5li/bee-mini-plan.jpg?rlkey=837du19guunsvzxp8xavll1px&st=lt12tahg&dl=0',
   },
 ];
 

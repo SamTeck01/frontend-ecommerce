@@ -2,9 +2,12 @@ import { HashLink } from 'react-router-hash-link';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
-import plans from '../assets/all_plans';
+//import plans from '../assets/all_plans';
 import { useState } from 'react';
 import { useWishlist } from './WishlistContext';
+import { useContext } from 'react';
+import { PlansContext } from './PlansContext';
+
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -105,6 +108,7 @@ PlanCard2.propTypes = {
 }
 
 const PlansPage = () => {
+  const { plans } = useContext(PlansContext);
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
 
@@ -113,6 +117,9 @@ const PlansPage = () => {
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
+  // Ensure plans is defined and has data
+  if (!plans || !plans.length) return <div>Loading plans...</div>;
+
   return (
     <section className="px-4 pt-24 ">
       {showToast && (
@@ -135,35 +142,28 @@ const PlansPage = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center ">
-          {plans.map((plan, index) => (
-            <div key={plan.slug}>
+          {plans.map((plan, index) => {
+            let parsedFeatures = [];
+            try {
+              // Replace curly braces with square brackets
+              parsedFeatures = JSON.parse(plan.features.replace(/^{/, '[').replace(/}$/, ']'));
+            } catch (err) {
+              console.error('Error parsing features:', err);
+            }
+            return(<div key={plan.slug}>
               <PlanCard2 
                 image={plan.image}
                 title={plan.title}
                 slug={plan.slug}
                 price={plan.price}
-                features={plan.features}
+                features={parsedFeatures}
                 ctaText={`Get ${plan.title}`}
                 custom={index}
                 priceLabel={plan.priceLabel}
                 onToast={triggerToast}
               />
-              {/*<div className="border p-6 rounded-lg shadow-md hover:shadow-xl transition-all">
-                <h2 className="text-xl font-semibold mb-2">{plan.title}</h2>
-                <p className="text-lg font-bold text-gold2 mb-4">{plan.price}</p>
-                <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                  {plan.features.slice(0, 3).map((feat, idx) => (
-                    <li key={idx}>✔ {feat}</li>
-                  ))}
-                </ul>
-                <HashLink smooth to={`/plans/${plan.slug}`}
-                  className="inline-block mt-2 px-4 py-2 bg-ash text-white rounded hover:bg-black transition"
-                >
-                  View Details
-                </HashLink>
-              </div>*/}
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

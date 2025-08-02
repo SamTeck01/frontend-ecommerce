@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import plans from '../assets/all_plans';
+//import plans from '../assets/all_plans';
 import { Star, ShoppingCart, AlertCircle, Info, DollarSign, ChevronRight, ChevronDown, ChevronUp, Heart, Share2 } from 'lucide-react';
 import SendWhatsAppMessage from './SendWhatsappMessage';
 import { Link } from 'react-router-dom';
@@ -7,14 +7,39 @@ import { HashLink } from 'react-router-hash-link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useWishlist } from './WishlistContext';
+import { useContext } from 'react';
+import { PlansContext } from './PlansContext';
 
 
 const PlanDetails = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+  const { plans } = useContext(PlansContext);
   const { planWishlist, togglePlanWishlist } = useWishlist();
   const [showToast, setShowToast] = useState(false);
+  const [parsedDescription, setParsedDescription] = useState([]);
+  const [openSections, setOpenSections] = useState([]);
+
+  const { slug } = useParams();
+  const plan = plans.find((item) => item.slug === slug);
+
+  useEffect(() => {
+    if (!plan?.description) return;
+
+    try {
+      const parsed = JSON.parse(plan.description);
+      setParsedDescription(parsed);
+      setOpenSections(parsed.map(() => true));
+    } catch (err) {
+      console.error("Failed to parse plan description:", err);
+    }
+  }, [plan]);
+  
+  if (!plan || !plan.description) {
+    return <div className='py-24 text-center'>Loading plan details...</div>;
+  }else{null}
+  
   const handleWishlistToggle = () => {
     togglePlanWishlist(plan.slug);
     setShowToast(true);
@@ -24,17 +49,14 @@ const PlanDetails = () => {
     }, 3000); // 3 seconds
   };
   
-  const { slug } = useParams();
-  const plan = plans.find((item) => item.slug === slug);
-  
   const isWishlisted = planWishlist.includes(plan.slug);
-  // Initialize all indices as open by default, safely handle missing plan
-  const [openSections, setOpenSections] = useState(
-    plan && plan.description ? plan.description.map(() => true) : []
-  );
-
-  if (!plan) {
-    return <p className="text-center mt-20 text-red-500">Plan not found</p>;
+  
+  let parsedFeatures = [];
+  try {
+    // Replace curly braces with square brackets
+    parsedFeatures = JSON.parse(plan.features.replace(/^{/, '[').replace(/}$/, ']'));
+  } catch (err) {
+    console.error('Error parsing features:', err);
   }
   
   // Filter out the current plan to show others
@@ -144,7 +166,7 @@ const PlanDetails = () => {
               </div> 
 
               <ul className="space-y-1 my-4 text-gray-600">
-                {plan.features.map((feat, idx) => (
+                {parsedFeatures.map((feat, idx) => (
                   <li key={idx} className="flex items-center gap-2">
                     <AlertCircle size={14} className="text-green-600"/> {feat}
                   </li>
@@ -173,7 +195,7 @@ const PlanDetails = () => {
           <div className="bg-white md:bg-transparent p-3 rounded-lg md:shadow-none shadow-md">
             <h2 className="text-lg font-semibold text-black mb-4">Description</h2>
 
-            {plan.description.map((section, index) => (
+            {parsedDescription.map((section, index) => (
               <div key={index} className="mb-4">
                 <button
                   onClick={() => toggleSection(index)}

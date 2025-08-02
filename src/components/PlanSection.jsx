@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import {ShieldCheck, Share2, Heart} from 'lucide-react'; 
-import plans from '../assets/all_plans';
+//import plans from '../assets/all_plans';
 import { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { useWishlist } from './WishlistContext';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { PlansContext } from './PlansContext';
+
 
 const cardVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -110,7 +113,10 @@ PlanCard2.propTypes = {
   onToast: PropTypes.func.isRequired,
 };
 
+
+
 const PlansSection = () => {
+  const { plans } = useContext(PlansContext);
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
 
@@ -119,6 +125,10 @@ const PlansSection = () => {
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
+  
+  // Ensure plans is defined and has data
+  if (!plans || !plans.length) return <div>Loading plans...</div>;
+
   return (
     <section id="plans" className="px-4 py-12 mt-5">
 
@@ -155,20 +165,29 @@ const PlansSection = () => {
           </p>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 place-items-center">
-          {plans.map((plan, index) => (<div key={plan.slug} >
-            <PlanCard2
-              image={plan.image}
-              title={plan.title}
-              price={plan.price}
-              slug={plan.slug}
-              label={plan.priceLabel}
-              features={plan.features}
-              ctaText={`Get ${plan.title}`}
-              custom={index}
-              priceLabel={plan.priceLabel}
-              onToast={triggerToast}
-            />
-          </div>))}
+          {plans.map((plan, index) => { 
+            let parsedFeatures = [];
+            try {
+              // Replace curly braces with square brackets
+              parsedFeatures = JSON.parse(plan.features.replace(/^{/, '[').replace(/}$/, ']'));
+            } catch (err) {
+              console.error('Error parsing features:', err);
+            }
+            return(<div key={plan.slug} >
+              <PlanCard2
+                image={plan.image}
+                title={plan.title}
+                price={plan.price}
+                slug={plan.slug}
+                label={plan.priceLabel}
+                features={parsedFeatures}
+                ctaText={`Get ${plan.title}`}
+                custom={index}
+                priceLabel={plan.priceLabel}
+                onToast={triggerToast}
+              />
+            </div>
+          )})}
         </div>
 
         <div className="mt-12 text-center">
