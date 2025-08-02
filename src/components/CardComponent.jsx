@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CardComponent = ({ title, description, image, to, productCount, startingPrice="₦150,000" }) => {
+const CardComponent = ({ title, description, image, to, productCount, startingPrice }) => {
   return (
     <Link to={to} className="block">
       <section className='bg-white flex flex-col gap-3 p-[10px] rounded-[15px] w-[270px] md:w-[230px]'>

@@ -7,6 +7,20 @@ import { ProductsContext } from "./ProductsContext.jsx"; // Import ProductsConte
 
 export default function Products() {
   const { products } = useContext(ProductsContext); // Access products from context
+  const getStartingPrice = (productsString) => {
+    try {
+      const products = JSON.parse(productsString.replace(/[\r\n]+/g, ''));
+      const prices = products.map(p => {
+        const raw = p.price.replace(/[₦,]/g, '');
+        return parseFloat(raw);
+      });
+      const minPrice = Math.min(...prices);
+      return `₦${minPrice.toLocaleString()}`;
+    } catch (error) {
+      console.error('Error parsing products:', error);
+      return null;
+    }
+  };
 
   return (
     <motion.section
@@ -41,6 +55,7 @@ export default function Products() {
           <div className="mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
             {products.map((category) => {
               const parsedProducts = JSON.parse(category.products || '[]'); // Parse products if they are stored as a JSON string
+              const startingPrice = getStartingPrice(category.products);
               return(
               <CardComponent
                 key={category.id}
@@ -49,6 +64,7 @@ export default function Products() {
                 image={category.image}
                 to={`/products/${category.slug}`}
                 productCount={parsedProducts.length}
+                startingPrice={startingPrice}
               />
             )})}
           </div>
