@@ -13,9 +13,6 @@ export default {
         slate: {
           10: '#f1f3f4',
         },
-        ash: '#575757',
-        gold: '#F7F4E9',
-        gold2: '#E49900',
         green: {
           50: '#30AF5B',
           90: '#292C27',
@@ -29,9 +26,8 @@ export default {
         },
       },
      backgroundImage: {
-        hero: "url('/src/assets/solar gadgets hero 2.jpg')",
-        banneroffer: "url('/src/assets/solar gadgets hero.jpg')",
-        freepage: "url('/src/assets/pexels-photo-9875680.jpeg')",
+        hero: "url('/src/assets/bgecom.png')",
+        banneroffer: "url('/src/assets/banneroffer.png')",
       },
       screens: {
         xs: '400px',
